@@ -1,0 +1,55 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@font-face {
+  font-family: 'Nunito Bold';
+  src: url("./assets/fonts/Nunito/Nunito-Bold.ttf");
+}
+
+@font-face {
+  font-family: 'Nunito Black';
+  src: url("./assets/fonts/Nunito/Nunito-Black.ttf");
+}
+
+@font-face {
+  font-family: "Nunito ExtraBold";
+  src: url("./assets/fonts/Nunito/Nunito-ExtraBold.ttf");
+}
+
+@font-face {
+  font-family: "Coiny";
+  src: url("./assets/fonts/Coiny/Coiny-Regular.ttf");
+}
+
+@font-face {
+  font-family: "Open Sans Bold";
+  src: url("./assets/fonts/OpenSans/OpenSauceSans-Bold.ttf");
+}
+
+@font-face {
+  font-family: "Open Sans Medium";
+  src: url("./assets/fonts/OpenSans/OpenSauceSans-Medium.ttf");
+}
+
+@font-face {
+  font-family: "Open Sans Regular";
+  src: url("./assets/fonts/OpenSans/OpenSauceSans-Regular.ttf");
+}
+
+@font-face {
+  font-family: "Open Sans Semi";
+  src: url("./assets/fonts/OpenSans/OpenSauceSans-SemiBold.ttf");
+}
+
+:root {
+  --main-bg-clr: #F8EDED;
+  --secondary-bg-clr: #F2D0D2;
+  --main-text-clr: #393838;
+  --secondary-text-clr: #656464;
+  --main-section-bg-clr: #F3F3F3;
+}
+
+::selection {
+  background-color: var(--secondary-bg-clr);
+}
