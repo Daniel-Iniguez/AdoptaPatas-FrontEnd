@@ -1,77 +1,77 @@
-import React from 'react'
-import { Link, NavLink } from 'react-router-dom'
-import '../styles/Navbar.css'
+import React, { useState } from 'react'
+import { Link } from 'react-router-dom'
+import './navbar.css'
+import Logo from '../../assets/logos/Logo.svg'
+import { FaTimes } from 'react-icons/fa'
+import { IoMenu } from "react-icons/io5";
 
 
 function Navbar() {
-  return (
+  const [click, setClick] = useState(false);
+  const handleClick = () => setClick(!click);
+
+  const content =
     <>
-  {/* Navbar */}
-  <header id="nav-bar">
-    <nav className="navbar-custom navbar navbar-custom navbar-expand-lg">
-      <div className="container-fluid">
-        {/* Logo */}
-        {/* Left Side Navbar */}
-        <Link className="navbar-brand" to='/HomeFeed'>
-          <img id="logoNav" src='src/assets/img/logos/SVG/Logo.svg' />
-        </Link>
-        <button
-          className="navbar-toggler"
-          type="button"
-          data-bs-toggle="collapse"
-          data-bs-target="#navbarNav"
-          aria-controls="navbarNav"
-          aria-expanded="false"
-          aria-label="Toggle navigation"
-        >
-          <i className="fa-solid fa-bars" />
-        </button>
-        {/* Right Side Navbar */}
-        <div
-          className="collapse navbar-collapse justify-content-end pe-4"
-          id="navbarNav"
-        >
-          <ul className="navbar-nav">
-            <li className="nav-item">
-              <NavLink className="nav-link" to='/adopt'>
-                Adoptar
-              </NavLink>
-            </li>
-            <li className="nav-item">
-              <NavLink className="nav-link" to='/news-feed' >
-                News Feed
-              </NavLink>
-            </li>
-            <li className="nav-item">
-              <NavLink className="nav-link" to='/involucrate' >
-                Involúcrate
-              </NavLink>
-            </li>
-            <li className="nav-item">
-              <NavLink
-                id="btn-login"
-                className="nav-link rounded-5"
-                to='/sign-in'
-              >
-                Iniciar Sesión
-              </NavLink>
-            </li>
-            <li className="nav-item">
-              <NavLink
-                id="btn-register"
-                className="nav-link rounded-5"
-                to = '/sign-up'
-              >
-                Registrarse
-              </NavLink>
-            </li>
-          </ul>
+      <div className='lg:hidden block absolute top-14 w-full left-0 right-0 h-[100vh]
+      py-8 bg-main-bg-color'>
+        <ul className='text-center text-[1.1rem] p-20'>
+          <Link spy={true} smooth={true} to='/'>
+            <li className='transition my-4 py-4 border-b hover:bg-dark-pink hover:rounded'>Adoptar</li>
+          </Link>
+          <Link spy={true} smooth={true} to='/'>
+            <li className='transition my-4 py-4 border-b hover:bg-dark-pink hover:rounded'>Acerca De</li>
+          </Link>
+          <Link spy={true} smooth={true} to='/'>
+            <li className='transition my-4 py-4 border-b hover:bg-dark-pink hover:rounded'>Involúcrate</li>
+          </Link>
+          <Link spy={true} smooth={true} to='/'>
+            <li className='transition my-4 py-4 border-b hover:bg-dark-pink hover:rounded'>Iniciar Sesión</li>
+          </Link>
+          <Link spy={true} smooth={true} to='/'>
+            <li className='transition my-4 py-4 border-b hover:bg-dark-pink hover:rounded'>Regístrate</li>
+          </Link>
+        </ul>
+
+      </div>
+    </>
+
+  return (
+    <nav className='text-main-text-color text-[0.9rem]'>
+      <div className='h-9vh flex justify-between z-50 bg-main-bg-color lg:py-4 px-10 py-4'>
+        <div className='flex items-center flex-1'>
+          <Link>
+            <img className='lg:w-[11rem] md:w-[9rem] sm:w-[8rem] w-[8rem] transition-all' src={Logo} alt="" />
+          </Link>
         </div>
+        <div className='lg:flex md:flex lg:flex-auto items-center justify-end hidden '>
+          <div className='flex-10 '>
+            <ul className='flex gap-10 mr-1 items-center'>
+              <Link spy={true} smooth={true} to='/'>
+                <li className='hover:text-black transition cursor-pointer' >Adoptar</li>
+              </Link>
+              <Link spy={true} smooth={true} to='/'>
+                <li className='hover:text-black transition cursor-pointer' >Acerca De</li>
+              </Link>
+              <Link spy={true} smooth={true} to='/'>
+                <li className='hover:text-black transition cursor-pointer' >Involúcrate</li>
+              </Link>
+              <Link spy={true} smooth={true} to='/'>
+                <li className='hover:text-white transition ease-in-out delay-100 px-6 py-[0.5rem] rounded-3xl border-2 border-main-text-color hover:bg-main-text-color cursor-pointer' >Iniciar Sesión</li>
+              </Link>
+              <Link spy={true} smooth={true} to='/'>
+                <li className='hover:text-black transition ease-in-out delay-100 cursor-pointer bg-main-text-color px-7 py-[0.5rem] text-white rounded-3xl hover:bg-white' >Regístrate</li>
+              </Link>
+            </ul>
+          </div>
+        </div>
+        <div>
+          {click && content}
+        </div>
+        <button className='block sm:hidden transition' onClick={handleClick}>
+          {click ? <FaTimes /> : <IoMenu size={'2rem'} />}
+        </button>
       </div>
     </nav>
-  </header>
-</>
-
   )
 }
 
