@@ -14,7 +14,7 @@ function App() {
 
 
   return (
-    <main className='flex h-screen'>
+    <main className='text-blue-800'>
       <Navbar />
       <Routes>
         <Route element={<MainLayout />}>
