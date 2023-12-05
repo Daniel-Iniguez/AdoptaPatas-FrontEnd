@@ -2,8 +2,8 @@ import React from 'react'
 
 function HomeFeed() {
   return (
-    <div>HomeFeed</div>
+    <div className=''>HomeFeed</div>
   )
 }
 
-export default HomeFeed
+export default HomeFeed;
