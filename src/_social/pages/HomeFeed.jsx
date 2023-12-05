@@ -6,4 +6,4 @@ function HomeFeed() {
   )
 }
 
-export default HomeFeed;
+export default HomeFeed

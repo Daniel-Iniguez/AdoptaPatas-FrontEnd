@@ -1,4 +1,5 @@
-import React from 'react';
+import React from 'react'
+import { Link } from 'react-router-dom'
 
 function Navbar() {
 
@@ -30,12 +31,12 @@ function Navbar() {
     <nav>
       <div className='h-10vh flex justify-between z-50 bg-black lg:py-5 px-20 py-4'>
         <div className='flex items-center flex-1'>
-          <span>Logo</span>
+          <span className='text-text-color'>Logo</span>
         </div>
         <div className='lg:flex md:flex lg: flex-1 items-center justify-end hidden'>
           <div className='flex-10'>
             <ul className='flex gap-8 mr-16 text-[18px]'>
-              <Link to=''>
+              <Link className='' to='/'>
                 <li>Adoptar</li>
               </Link>
               <Link to='/'>
@@ -59,4 +60,4 @@ function Navbar() {
   )
 }
 
-export default Navbar;
+export default Navbar

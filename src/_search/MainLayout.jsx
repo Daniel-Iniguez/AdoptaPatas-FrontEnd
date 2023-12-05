@@ -1,9 +1,9 @@
-import React from 'react';
+import React from 'react'
 
 function MainLayout() {
   return (
-    <div className='bg-slate-500'>MainLayout</div>
+    <div className='bg-black h-9 font-sans'>MainLayout</div>
   )
 }
 
-export default MainLayout;
+export default MainLayout
