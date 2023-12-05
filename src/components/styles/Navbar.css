@@ -1,0 +1,80 @@
+
+/* -------------- Navbar ---------------- */
+header {
+    /* position: absolute; */
+    z-index: 999;
+    width: 100%;
+}
+
+.navbar {
+    background-color: transparent !important;
+}
+
+/* .navbar-custom {
+  background-color: var(--main-bg-clr) !important;
+
+} */
+
+.navbar-brand img {
+    width: 14rem;
+    padding-left: 12%;
+}
+
+.navbar-nav li {
+    padding: 0 15px;
+}
+
+.navbar-nav li a,
+.text-btn {
+    color: var(--main-text-clr) !important;
+    font-family: "Open Sans Semi";
+    font-size: 14px;
+}
+
+.navbar-nav li a {
+    text-align: center;
+}
+
+.fa-bars {
+    color: var(--main-text-clr);
+    font-size: 30px;
+
+}
+
+.navbar-toggler:focus {
+    border: 0 !important;
+    box-shadow: none !important;
+}
+
+.navbar-toggler {
+    border: 0 !important;
+}
+
+.text-btn,
+.text-btn-white {
+    text-decoration: none;
+}
+
+#btn-register {
+    background-color: var(--main-text-clr);
+    color: white !important;
+    font-size: 14px;
+    font-family: "Open Sans Semi";
+    padding: 9px 20px;
+}
+
+#btn-login {
+    color: black;
+    border: 2px solid var(--buttonsColor);
+    font-size: 14px;
+    font-family: "Open Sans Semi";
+    padding: 8px 18px;
+}
+
+#btn-register:hover {
+    background-color: #ea6d6b;
+}
+
+#btn-login:hover {
+background-color: #f3f1f1;
+}
