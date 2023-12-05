@@ -22,16 +22,19 @@ function App() {
   return (
     <main className='flex h-screen'>
       <Navbar></Navbar>
+
       <Routes>
         {/* Public Routes */}
         <Route element={<AuthLayout />}>
           <Route path='/sign-in' element={<SignInForm />} />
           <Route path='/sign-up' element={<SignUpForm />} />
         </Route>
+
         {/* Private Routes */}
         <Route element={<RootLayout />}>
           <Route index element={<HomeFeed />} />
         </Route>
+
         <Route path='/about-us' element={<AboutUs />} />
         <Route path='/contact' element={<Contact />} />
         <Route path='/asked-questions' element={<AskedQuiestions />} />
@@ -40,6 +43,7 @@ function App() {
         <Route path='/adopt' element={<Adopt />} />
         <Route path='/news-feed' element={<NewsFeed />} />
       </Routes>
+      
       <Footer></Footer>
     </main>
   )
