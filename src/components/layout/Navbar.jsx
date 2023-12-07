@@ -46,16 +46,16 @@ function Navbar() {
         <div className='lg:flex md:flex lg:flex-auto items-center justify-end hidden '>
           <div className='flex-10 '>
             <ul className='flex gap-10 mr-1 items-center'>
-              <Link spy={true} smooth={true} to='/'>
+              <Link spy={true} smooth={true} to='/pet.card'>
                 <li className='hover:text-black transition cursor-pointer' >Adoptar</li>
               </Link>
-              <Link spy={true} smooth={true} to='/'>
+              <Link spy={true} smooth={true} to='/contact'>
                 <li className='hover:text-black transition cursor-pointer' >Acerca De</li>
               </Link>
               <Link spy={true} smooth={true} to='/'>
                 <li className='hover:text-black transition cursor-pointer' >Involúcrate</li>
               </Link>
-              <Link spy={true} smooth={true} to='/'>
+              <Link spy={true} smooth={true} to='/sign-in'>
                 <li className='hover:text-white transition ease-in-out delay-100 px-6 py-[0.5rem] rounded-3xl border-2 border-main-text-color hover:bg-main-text-color cursor-pointer' >Iniciar Sesión</li>
               </Link>
               <Link spy={true} smooth={true} to='/'>

@@ -1,0 +1,67 @@
+/*------------- Main --------------------*/
+main {
+    background-color: var(--main-bg-clr) !important;
+    /* padding-top: 100px; */
+    /* padding-bottom: 100px; */
+}
+
+h2 {
+    font-family: "Nunito Bold" !important;
+    font-size: 300% !important;
+}
+
+p {
+    font-family: "Nunito Bold" !important;
+}
+
+#buttonContact {
+    background-color: var(--buttonsColor);
+    color: azure;
+    width: 50%;
+}
+
+#buttonContact:hover{
+    background-color: #ea6d6b;
+}
+
+.form {
+    width: 70%;
+}
+
+#imgContact {
+    width: 70%;
+}
+
+#nameUser, #emailUser, #message, #telUser {
+    background-color: var(--main-bg-clr);
+    border: none;
+}
+
+.form-div {
+    border-bottom: 2px solid black;
+}
+
+.form-div:hover {
+    border-bottom: 2px solid var(--buttonsColor);
+
+}
+
+.text-form{
+    font-size: 130%;
+}
+
+.btn{
+    margin-top: 5%;
+}
+
+.imgC{
+    margin: auto;
+    width: 600px;
+    height: 600px;
+    border-radius: 50px;
+    object-fit: cover;
+}
+
+#errorName, #errorEmail{
+    font-size: 15px;
+}

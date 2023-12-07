@@ -9,6 +9,9 @@ import Navbar from './components/layout/Navbar'
 import MainLayout from './_search/MainLayout'
 import Home from './_search/pages/Home'
 import Footer from './components/layout/Footer'
+import { PetCards } from './_search/pages/PetCards'
+import { Contact } from './_search/pages/Contact'
+
 
 function App() {
 
@@ -30,7 +33,10 @@ function App() {
         {/* Private Routes */}
         <Route element={<RootLayout />}>
           <Route path='/social' element={<HomeFeed />} />
+          
         </Route>
+        <Route path='/pet.card' element={<PetCards />} />
+        <Route path='/contact' element={<Contact/>} />
       </Routes>
       <Footer />
     </main>
