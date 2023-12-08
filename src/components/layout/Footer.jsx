@@ -12,7 +12,9 @@ function Footer() {
       <div className="w-[100%]">
         <div className="flex flex-wrap-reverse gap-[2.8rem] lg:gap-4 lg:flex-nowrap custom-padding-row py-20">
           <div className="w-[100%]  md:text-left text-center place-items-center pr-10 pl-10 lg:w-1/2 lg:place-items-start flex flex-col left-container justify-between md:gap-[2.2rem]">
-            <img className='w-[13rem]' id="footer-logo" src={LogoFooter} alt="" />
+            <Link className='text-[15px] md:text-[1rem] hover:text-hover-pink transition' href="">
+              <img className='w-[13rem]' id="footer-logo" src={LogoFooter} alt="" />
+            </Link>
             <Link className='text-[15px] md:text-[1rem] hover:text-hover-pink transition' href="">
               contacto.adoptapatas@gmail.com
             </Link>
