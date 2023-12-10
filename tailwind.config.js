@@ -16,7 +16,8 @@ export default {
         "text-color": "#656464",
         "first-section-color": "F3F3F3",
         "dark-pink": "#d9a1a4",
-        "hover-pink": "#e5bcbc"
+        "hover-pink": "#e5bcbc",
+        "pink": "#F28482"
       }
     },
   },
