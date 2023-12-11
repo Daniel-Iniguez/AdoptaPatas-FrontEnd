@@ -45,6 +45,16 @@ export const PetCards = () => {
     setEditIndex(null);
   };
 
+  const handleDeleteObject = (index) => {
+    const updatedObjects = [...objects];
+    updatedObjects.splice(index, 1); // Eliminar el objeto en la posición 'index'
+    
+    setObjects(updatedObjects); // Actualizar el estado de los objetos
+    
+    // Actualizar el local storage si es necesario
+    localStorage.setItem('objects', JSON.stringify(updatedObjects));
+  };
+
   console.log("Objeto a editar:", editIndex !== null ? objects[editIndex] : null);
 
   console.log(objects)
@@ -172,6 +182,7 @@ export const PetCards = () => {
               <CardActions style={{ justifyContent: 'flex-end' }} >
                 <Button variant="contained" color="secondary">Adoptame...</Button>
                 <Button onClick={() => handleEditClick(index)}>Editar</Button>
+                <Button onClick={() => handleDeleteObject(index)}>Eliminar</Button>
               </CardActions>
             </Card>
           </Grid>
