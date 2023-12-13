@@ -9,7 +9,7 @@ import Grid from '@mui/material/Grid';
 import { CardActionArea, CardActions } from '@mui/material';
 import { useState } from 'react';
 import { useEffect } from 'react';
-import AddObjectModal from './Adopt/AddObjectModal';
+import AddObjectModal from './AddObjectModal';
 
 
 export const PetCards = () => {

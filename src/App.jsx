@@ -9,7 +9,7 @@ import Navbar from './components/layout/Navbar'
 import MainLayout from './_search/MainLayout'
 import Home from './_search/pages/Home'
 import Footer from './components/layout/Footer'
-import { PetCards } from './_search/pages/PetCards'
+import { PetCards } from './_search/pages/Adopt/PetCards'
 import { Contact } from './_search/pages/Contact'
 
 
