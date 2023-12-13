@@ -89,12 +89,12 @@ const AddObjectModal = ({ isOpen, onClose, onAddObject, editObject, onEditObject
               className="block appearance-none w-full py-1 px-2 mb-1 text-base leading-normal bg-white text-gray-800 border border-gray-200 rounded"
               name="nombre"
               placeholder='nombre'
-              value={editObject ? editObject.nombre : formData.nombre}
+              value={ formData.nombre}
               onChange={handleChange}
             />
           </div>
           <div className="mb-3">
-            <select className="form-select" aria-label="Default select example" name="edad" value={editObject ? editObject.edad : formData.edad} onChange={handleChange}>
+            <select className="form-select" aria-label="Default select example" name="edad" value={ formData.edad} onChange={handleChange}>
               <option value=''>Edad</option>
               <option value="Cachorro">Cachorro</option>
               <option value="Joven">Joven</option>
@@ -110,12 +110,12 @@ const AddObjectModal = ({ isOpen, onClose, onAddObject, editObject, onEditObject
               type="text"
               className="block appearance-none w-full py-1 px-2 mb-1 text-base leading-normal bg-white text-gray-800 border border-gray-200 rounded"
               name="raza"
-              value={editObject ? editObject.raza : formData.raza}
+              value={ formData.raza}
               onChange={handleChange}
             />
           </div>
           <div className="mb-3">
-            <select className="form-select" aria-label="Default select example" name="tamaño" value={editObject ? editObject.tamaño : formData.tamaño} onChange={handleChange}>
+            <select className="form-select" aria-label="Default select example" name="tamaño" value={ formData.tamaño} onChange={handleChange}>
               <option value=''>Tamaño</option>
               <option value="Pequeño">Pequeño</option>
               <option value="Mediano">Mediano</option>
@@ -123,7 +123,7 @@ const AddObjectModal = ({ isOpen, onClose, onAddObject, editObject, onEditObject
             </select>
           </div>
           <div className="mb-3">
-            <select className="form-select" aria-label="Default select example" name='lugar' value={editObject ? editObject.lugar : formData.lugar} onChange={handleChange}>
+            <select className="form-select" aria-label="Default select example" name='lugar' value={ formData.lugar} onChange={handleChange}>
               <option value=''>Selecciona ciudad</option>
               <option value="Aguascalientes">Aguascalientes</option>
               <option value="Baja California">Baja California</option>

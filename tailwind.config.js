@@ -6,7 +6,11 @@ export default {
     "./components/**/*.{js,ts,jsx,tsx}",
     "./src/**/*.{js,ts,jsx,tsx}",
     "./index.html",
+    "node_modules/flowbite-react/lib/esm/**/*.js"
   ],
+
+  // prefix: 'tw-',
+  
   theme: {
     extend: {
       colors: {
@@ -16,13 +20,10 @@ export default {
         "text-color": "#656464",
         "first-section-color": "F3F3F3",
         "dark-pink": "#d9a1a4",
-        "hover-pink": "#e5bcbc",
-        "pink": "#F28482"
+        "hover-pink": "#e5bcbc"
       }
     },
   },
-  plugins: [],
-  
 }
 
 

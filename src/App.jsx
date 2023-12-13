@@ -22,6 +22,8 @@ function App() {
       <Routes>
         <Route element={<MainLayout />}>
           <Route index element={<Home />} />
+          
+          <Route path='/contact' element={<Contact/>} />
         </Route>
 
         {/* Public Routes */}
@@ -33,10 +35,11 @@ function App() {
         {/* Private Routes */}
         <Route element={<RootLayout />}>
           <Route path='/social' element={<HomeFeed />} />
-          
         </Route>
-        <Route path='/pet.card' element={<PetCards />} />
-        <Route path='/contact' element={<Contact/>} />
+
+        <Route path='/pet-card' element={<PetCards />} />
+        
+        
       </Routes>
       <Footer />
     </main>

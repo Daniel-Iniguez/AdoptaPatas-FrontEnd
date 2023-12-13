@@ -15,7 +15,7 @@ function Navbar() {
       <div className='lg:hidden block absolute top-14 w-full left-0 right-0 h-[100vh]
       py-8 bg-main-bg-color'>
         <ul className='text-center text-[1.1rem] p-20'>
-          <Link  to='/pet.card'>
+          <Link  to='/pet-card'>
             <li className='transition my-4 py-4 border-b hover:bg-dark-pink hover:rounded'>Adoptar</li>
           </Link>
           <Link  to='/'>
