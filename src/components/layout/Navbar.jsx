@@ -24,10 +24,10 @@ function Navbar() {
           <Link  to='/'>
             <li className='transition my-4 py-4 border-b hover:bg-dark-pink hover:rounded'>Involúcrate</li>
           </Link>
-          <Link  to='/'>
+          <Link  to='/sign-in'>
             <li className='transition my-4 py-4 border-b hover:bg-dark-pink hover:rounded'>Iniciar Sesión</li>
           </Link>
-          <Link  to='/'>
+          <Link  to='/sign-up'>
             <li className='transition my-4 py-4 border-b hover:bg-dark-pink hover:rounded'>Regístrate</li>
           </Link>
         </ul>

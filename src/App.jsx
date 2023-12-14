@@ -2,7 +2,7 @@ import './App.css'
 import { Routes, Route, Outlet } from 'react-router-dom'
 import HomeFeed from './_social/pages/HomeFeed'
 import SignInForm from './_auth/forms/SignInForm'
-import SignUpForm from './_auth/forms/SignUpForm'
+import SignUpForm from './_auth/forms/SignUpForm/SignUpForm'
 import AuthLayout from './_auth/AuthLayout'
 import RootLayout from './_social/RootLayout'
 import Navbar from './components/layout/Navbar'
@@ -10,19 +10,15 @@ import MainLayout from './_search/MainLayout'
 import Home from './_search/pages/Home'
 import Footer from './components/layout/Footer'
 import { PetCards } from './_search/pages/Adopt/PetCards'
-import { Contact } from './_search/pages/Contact'
 
 
 function App() {
-
-
   return (
     <main className='text-blue-800'>
       <Navbar />
       <Routes>
         <Route element={<MainLayout />}>
           <Route index element={<Home />} />
-          <Route path='/contact' element={<Contact/>} />
         </Route>
 
         {/* Public Routes */}
