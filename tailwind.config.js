@@ -9,6 +9,7 @@ export default {
     "node_modules/flowbite-react/lib/esm/**/*.js"
   ],
 
+
   // prefix: 'tw-',
   
   theme: {
@@ -21,7 +22,7 @@ export default {
         "first-section-color": "F3F3F3",
         "dark-pink": "#d9a1a4",
         "hover-pink": "#e5bcbc"
-      }
+      },
     },
   },
 }

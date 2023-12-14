@@ -55,10 +55,10 @@ function Navbar() {
               <Link  to='/'>
                 <li className='hover:text-black transition cursor-pointer' >Involúcrate</li>
               </Link>
-              <Link  to='/'>
+              <Link  to='/sign-in'>
                 <li className='hover:text-white transition duration-200 ease-in-out px-6 py-[0.5rem] rounded-3xl border-2 border-main-text-color hover:bg-main-text-color cursor-pointer' >Iniciar Sesión</li>
               </Link>
-              <Link  to='/'>
+              <Link  to='/sign-up'>
                 <li className='hover:text-black transition duration-200 ease-in-out cursor-pointer bg-main-text-color px-7 py-[0.5rem] text-white rounded-3xl hover:bg-white' >Regístrate</li>
               </Link>
             </ul>
@@ -67,7 +67,7 @@ function Navbar() {
         <div>
           {click && content}
         </div>
-        <button className='block sm:hidden transition' onClick={handleClick}>
+        <button className='block md:hidden transition' onClick={handleClick}>
           {click ? <FaTimes /> : <IoMenu size={'2rem'} />}
         </button>
       </div>
