@@ -1,5 +1,9 @@
-div {
-  background-color: black;
-  height: 40vh;
-  width: 100%;
+.custom-padding-row {
+  padding: 3% 4%;
+  font-family: "Open Sans Regular";
+}
+
+.left-container,
+.right-container {
+  min-height: 230px;
 }

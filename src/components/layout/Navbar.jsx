@@ -27,7 +27,7 @@ function Navbar() {
           <Link spy={true} smooth={true} to='/'>
             <li className='transition my-4 py-4 border-b hover:bg-dark-pink hover:rounded'>Iniciar Sesión</li>
           </Link>
-          <Link spy={true} smooth={true} to='/'>
+          <Link spy={true} smooth={true} to='sign-up'>
             <li className='transition my-4 py-4 border-b hover:bg-dark-pink hover:rounded'>Regístrate</li>
           </Link>
         </ul>
@@ -55,10 +55,13 @@ function Navbar() {
               <Link spy={true} smooth={true} to='/'>
                 <li className='hover:text-black transition cursor-pointer' >Involúcrate</li>
               </Link>
+              <Link spy={true} smooth={true} to='contact'>
+                <li className='hover:text-black transition cursor-pointer' >Contactanos</li>
+              </Link>
               <Link spy={true} smooth={true} to='/'>
                 <li className='hover:text-white transition ease-in-out delay-100 px-6 py-[0.5rem] rounded-3xl border-2 border-main-text-color hover:bg-main-text-color cursor-pointer' >Iniciar Sesión</li>
               </Link>
-              <Link spy={true} smooth={true} to='/'>
+              <Link spy={true} smooth={true} to='/sign-up'>
                 <li className='hover:text-black transition ease-in-out delay-100 cursor-pointer bg-main-text-color px-7 py-[0.5rem] text-white rounded-3xl hover:bg-white' >Regístrate</li>
               </Link>
             </ul>
