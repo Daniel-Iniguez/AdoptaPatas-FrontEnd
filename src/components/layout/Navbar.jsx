@@ -55,9 +55,6 @@ function Navbar() {
               <Link spy={true} smooth={true} to='/'>
                 <li className='hover:text-black transition cursor-pointer' >Involúcrate</li>
               </Link>
-              <Link spy={true} smooth={true} to='contact'>
-                <li className='hover:text-black transition cursor-pointer' >Contactanos</li>
-              </Link>
               <Link spy={true} smooth={true} to='/'>
                 <li className='hover:text-white transition ease-in-out delay-100 px-6 py-[0.5rem] rounded-3xl border-2 border-main-text-color hover:bg-main-text-color cursor-pointer' >Iniciar Sesión</li>
               </Link>

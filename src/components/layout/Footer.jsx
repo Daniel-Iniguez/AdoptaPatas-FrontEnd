@@ -23,6 +23,9 @@ function Footer() {
             </p>
           </div>
           <div className="lg:w-1/2 w-[100%] place-items-center md:text-center pr-10 pl-10 flex flex-col lg:place-items-end right-container justify-between md:gap-[2.2rem]">
+            <Link to='contact' className='text-[15px] md:text-[1rem] hover:text-hover-pink transition'>
+              Contáctanos
+            </Link>
             <Link className='text-[15px] md:text-[1rem] hover:text-hover-pink transition' href="">
               Preguntas Frecuentes
             </Link>
