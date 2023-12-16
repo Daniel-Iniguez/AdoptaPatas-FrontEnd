@@ -165,18 +165,33 @@ function SignUpForm() {
 
   const handleSubmmit = async (e) => {
     e.preventDefault();
-    if ( isValidName && isValidLastName && isValidUserName && isValidEmail && isValidPassword && isValidAge && isv) {
-      try{
-        await userRegister(name, lastName, age, email, userName, password, gender ,selectedCountry.id);
-        handleOpenModalSignUp();
-        handleClearLabels();
-      } catch (error){
-        setSnackbarMessage(error); 
-        setSnackbarOpen(true);
+    if (
+      isValidName &&
+      isValidLastName &&
+      isValidUserName &&
+      isValidEmail &&
+      isValidPassword &&
+      isValidAge &&
+      isValidPhoneNumber &&
+      isValidPlace &&
+      isValidPostalCode) {
+      try {
+        await userRegister(name, lastName, age, email, userName, password, gender, selectedCountry.id);
+        setName("");
+        setLastName("");
+        setUserName("");
+        setEmail("");
+        setPassword("");
+        setAge("");
+        setPhoneNumber("");
+        setPlace("");
+        setPostalCode("");
+      } catch (error) {
+        console.warn('error')
       }
     } else {
-      setSnackbarMessage("User not register");
-      setSnackbarOpen(true);
+      console.log("User not register");
+
     }
   };
 
