@@ -1,16 +1,17 @@
 import React from 'react'
 import { Autocomplete, Container, Grid, IconButton, InputLabel, OutlinedInput, TextField, InputAdornment, Box } from '@mui/material';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';//Redigire al usuario despues de registar
 import Visibility from '@mui/icons-material/Visibility';
 import VisibilityOff from '@mui/icons-material/VisibilityOff';
 import { useState } from 'react';
 import '../SignUpForm/SignUp.css'
 import { colors } from '../../../assets/MUI/Colors';
+import { TextFieldStyle } from '../TextFieldStyles';
+import { RegisterPost } from './RegisterPost';
 
-import FormControlLabel from "@mui/material/FormControlLabel";
-import { TextFieldStyle } from './SignUpStyles';
 
 function SignUpForm() {
+  const navigate = useNavigate(); //Inicio el historial
 
   //Use state para ver u ocultar la contraseña
   const [showPassword, setShowPassword] = useState(false);
@@ -60,7 +61,7 @@ function SignUpForm() {
     const lastNameValue = e.target.value;
     console.log(lastNameValue);
     const regeName = /^[A-Za-záéíóúüñÁÉÍÓÚÜÑ\s]+$/;
-    if (lastNameValue.length < 4 || lastNameValue.length > 50 || !lastNameValue.match(regeName)){
+    if (lastNameValue.length < 4 || lastNameValue.length > 50 || !lastNameValue.match(regeName)) {
       setIsValidLastName(false);
     } else {
       setIsValidLastName(true);
@@ -73,7 +74,7 @@ function SignUpForm() {
     const userNameValue = e.target.value;
     console.log(userNameValue);
     const regeName = /^[a-zA-Z0-9_-]+(?:\.[a-zA-Z0-9_-]+)*$/;
-    if (userNameValue.length < 2 || userNameValue.length > 50 || !userNameValue.match(regeName)){
+    if (userNameValue.length < 2 || userNameValue.length > 50 || !userNameValue.match(regeName)) {
       setIsValidUserName(false);
     } else {
       setIsValidUserName(true);
@@ -121,7 +122,7 @@ function SignUpForm() {
   const handleAgeChange = (e) => {
     const userAge = e.target.value;
     console.log(userAge);
-    if (userAge < 18 || inputValue > 125) {
+    if (userAge < 18 || userAge > 125) {
       setIsValidAge(false);
     } else {
       setIsValidAge(true);
@@ -163,39 +164,31 @@ function SignUpForm() {
     console.log("handlePlaceChange called");
   };
 
-  const handleSubmmit = async (e) => {
+
+  const handleSubmit = (e) => {
     e.preventDefault();
+    // Verifica si todos los campos son válidos antes de proceder
     if (
       isValidName &&
       isValidLastName &&
       isValidUserName &&
       isValidEmail &&
       isValidPassword &&
+      isValidConfirmPassword &&
       isValidAge &&
       isValidPhoneNumber &&
-      isValidPlace &&
-      isValidPostalCode) {
-      try {
-        await userRegister(name, lastName, age, email, userName, password, gender, selectedCountry.id);
-        setName("");
-        setLastName("");
-        setUserName("");
-        setEmail("");
-        setPassword("");
-        setAge("");
-        setPhoneNumber("");
-        setPlace("");
-        setPostalCode("");
-      } catch (error) {
-        console.warn('error')
-      }
+      isValidPostalCode &&
+      isValidPlace
+    ) {
+      RegisterPost(name, lastName, userName, email, password, age, phoneNumber, place, postalCode);
+      // Redirige al usuario a la página de inicio de sesión
+      navigate('/sign-in');
+      
     } else {
-      console.log("User not register");
-
+      console.log('Error en el formulario');
     }
   };
-
-
+  
   return (
     <>
       <main className="grid grid-cols-1 sm:grid-cols-1 lg:grid-cols-5  gap-2 mx-auto bg-main-bg-color ">
@@ -209,8 +202,8 @@ function SignUpForm() {
         </div>
         {/* Formulario */}
         <div className=" col-span-3 my-auto text-main-text-color ">
-        <h2 className="my-10 text-center text-[4rem]" id='place-signUp'>¡Únete y Adopta!</h2>
-        <form className='mx-auto max-w-[85%]' onSubmit={handleSubmmit}>
+          <h2 className="my-10 text-center text-[4rem]" id='place-signUp'>¡Únete y Adopta!</h2>
+          <form className='mx-auto max-w-[85%]' onSubmit={handleSubmit} >
             <TextFieldStyle
               id="name"
               type='text'
@@ -323,7 +316,7 @@ function SignUpForm() {
               </Grid>
             </Container>
             <TextFieldStyle
-              type='number'
+              type='Number'
               id="age"
               label="Edad"
               variant="standard"
@@ -344,11 +337,11 @@ function SignUpForm() {
               fullWidth
               required
               error={!isValidPhoneNumber}
-              onChange={handleNumberChange}
               helperText={isValidPhoneNumber ? '' : 'Numero de 10 o 12 digitos'}
+              onChange={handleNumberChange}
               inputProps={{ maxLength: 10 }}
-              sx={{ marginBottom: '1%'}}
-            
+              sx={{ marginBottom: '1%' }}
+
             />
             <Container disableGutters >
               <Grid container >
@@ -377,7 +370,7 @@ function SignUpForm() {
                     label="Codigo Postal"
                     variant="standard"
                     value={postalCode}
-                    required 
+                    required
                     error={!isValidPostalCode}
                     helperText={isValidPostalCode ? '' : 'Entre 5 y 10 digitos'}
                     onChange={handlePostalCodeChange}

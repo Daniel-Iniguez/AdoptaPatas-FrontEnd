@@ -1,6 +1,6 @@
 import React from 'react'
 import SignUpForm from './forms/SignUpForm/SignUpForm';
-import SignInForm from './forms/SignInForm';
+import SignInForm from './forms/SignInForm/SignInForm';
 import { Outlet } from 'react-router-dom';
 
 function AuthLayout() {

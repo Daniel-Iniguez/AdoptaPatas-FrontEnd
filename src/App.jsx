@@ -1,7 +1,7 @@
 import './App.css'
 import { Routes, Route, Outlet } from 'react-router-dom'
 import HomeFeed from './_social/pages/HomeFeed'
-import SignInForm from './_auth/forms/SignInForm'
+import SignInForm from './_auth/forms/SignInForm/SignInForm'
 import SignUpForm from './_auth/forms/SignUpForm/SignUpForm'
 import AuthLayout from './_auth/AuthLayout'
 import RootLayout from './_social/RootLayout'

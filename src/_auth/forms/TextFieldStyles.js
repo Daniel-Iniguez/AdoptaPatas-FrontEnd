@@ -1,6 +1,6 @@
 import React from 'react'
 import styled from '@emotion/styled';
-import { colors } from '../../../assets/MUI/Colors';
+import { colors } from '../../assets/MUI/Colors';
 import { TextField } from '@mui/material';
 
 export const TextFieldStyle = styled(TextField)`
