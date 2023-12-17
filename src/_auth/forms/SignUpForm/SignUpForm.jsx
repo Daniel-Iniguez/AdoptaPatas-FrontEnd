@@ -1,5 +1,5 @@
 import React from 'react'
-import { Autocomplete, Container, Grid, IconButton, InputLabel, OutlinedInput, TextField, InputAdornment, Box } from '@mui/material';
+import { Autocomplete, Container, Grid, IconButton, InputAdornment } from '@mui/material';
 import { Link, useNavigate } from 'react-router-dom';//Redigire al usuario despues de registar
 import Visibility from '@mui/icons-material/Visibility';
 import VisibilityOff from '@mui/icons-material/VisibilityOff';
