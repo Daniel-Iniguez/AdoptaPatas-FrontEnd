@@ -44,6 +44,11 @@ function SignUpForm() {
   const [place, setPlace] = useState('');
   const [isValidPlace, setIsValidPlace] = useState(true);
 
+  //Validacion si ya existe un usuario y correo electronico
+  const [existUser, setExistUser] = useState(false);
+  const [existEmail, setExistEmail] = useState(false);
+  
+
   //Funciones para obtener el valor del input de cada campo
   const handleNameChange = (e) => {
     const nameValue = e.target.value;
@@ -73,11 +78,18 @@ function SignUpForm() {
   const handleUserNameChange = (e) => {
     const userNameValue = e.target.value;
     console.log(userNameValue);
+    const users = JSON.parse(localStorage.getItem('users')) || [];
+    const existUser = users.find(u => (u.userName === userNameValue));
     const regeName = /^[a-zA-Z0-9_-]+(?:\.[a-zA-Z0-9_-]+)*$/;
     if (userNameValue.length < 2 || userNameValue.length > 50 || !userNameValue.match(regeName)) {
       setIsValidUserName(false);
     } else {
-      setIsValidUserName(true);
+      if(existUser){
+        setExistUser(true);
+      }else{
+        setExistUser(false);
+        setIsValidUserName(true);
+      }
     }
     setUserName(userNameValue);
     console.log("handleUserNameChange called");
@@ -86,11 +98,18 @@ function SignUpForm() {
   const handleEmailChange = (e) => {
     const userEmail = e.target.value;
     console.log(userEmail);
+    const users = JSON.parse(localStorage.getItem('users')) || [];
+    const existEmail = users.find(u => (u.email === userEmail));
     const regeName = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/;
     if (userEmail.length < 1 || userEmail.length > 50 || !userEmail.match(regeName)) {
       setIsValidEmail(false);
     } else {
-      setIsValidEmail(true);
+      if (existEmail) {
+        setExistEmail(true);
+      }else{
+        setExistEmail(false)
+        setIsValidEmail(true);
+      }
     }
     setEmail(userEmail);
     console.log("handleEmailChange called");
@@ -99,7 +118,7 @@ function SignUpForm() {
   const handlePasswordChange = (e) => {
     const userPassword = e.target.value;
     console.log(userPassword);
-    const regeName = /^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/;
+    const regeName = /^(?=.*[A-Z])(?=.*\d)(?=.*[!@#$%^&*()_+])[A-Za-z\d!@#$%^&*()_+]{8,}$/;
     if (userPassword.length < 8 || userPassword.length > 50 || !userPassword.match(regeName)) {
       setIsValidPassword(false);
     } else {
@@ -178,14 +197,15 @@ function SignUpForm() {
       isValidAge &&
       isValidPhoneNumber &&
       isValidPostalCode &&
-      isValidPlace
+      isValidPlace &&
+      !existUser && !existEmail
     ) {
       RegisterPost(name, lastName, userName, email, password, age, phoneNumber, place, postalCode);
       // Redirige al usuario a la página de inicio de sesión
       navigate('/sign-in');
       
     } else {
-      console.log('Error en el formulario');
+      console.log('Error en el formulario, verifica los datos');
     }
   };
   
@@ -237,8 +257,8 @@ function SignUpForm() {
               value={userName}
               required
               fullWidth
-              error={!isValidUserName}
-              helperText={isValidUserName ? '' : 'Nombre de Usuario Invalido'}
+              error={!isValidUserName || existUser}
+              helperText={isValidUserName ? (existUser? 'El usuaro ya existe, pruebe con otro' : '') : 'Nombre de Usuario Invalido'}
               onChange={handleUserNameChange}
               sx={{ marginBottom: '1%' }}
             />
@@ -250,8 +270,8 @@ function SignUpForm() {
               value={email}
               required
               fullWidth
-              error={!isValidEmail}
-              helperText={isValidEmail ? '' : 'Email Invalido'}
+              error={!isValidEmail || existEmail}
+              helperText={isValidEmail ? (existEmail? 'El correo ya esta en uso, pruebe con otro' : '') : 'Email Invalido'}
               onChange={handleEmailChange}
               sx={{ marginBottom: '1%' }}
             />
@@ -265,7 +285,7 @@ function SignUpForm() {
                     value={password}
                     required
                     error={!isValidPassword}
-                    helperText={isValidPassword ? '' : 'Contraseña debe tener al menos 8 caracteres, una letra Mayuscula, un numero y un caracter especial'}
+                    helperText={isValidPassword ? '' : 'La contraseña debe tener 8 o mas caracteres , al menos una letra Mayuscula, un numero y un caracter especial'}
                     sx={{ width: '98%', marginBottom: '1%' }}
                     onChange={handlePasswordChange}
                     type={showPassword ? "text" : "password"}
