@@ -9,7 +9,7 @@ import { colors } from '../../../assets/MUI/Colors';
 import { TextFieldStyle } from '../TextFieldStyles';
 
 
-function SignInForm({ onLogin }) {
+function SignInForm({ setIsLogin }) {
 
   const navigate = useNavigate(); //Inicio el historial
 
@@ -24,7 +24,7 @@ function SignInForm({ onLogin }) {
   const [isValidPassword, setIsValidPassword] = useState(true);
   const [isValidUser, setIsValidUser] = useState(true);
   const [error, setError] = useState('');
-  const [message, setMessage] = useState('');
+
 
   const handleUserNameChange = (e) => {
     const userNameValue = e.target.value;
@@ -59,9 +59,11 @@ function SignInForm({ onLogin }) {
       setIsValidUser(true);
       setIsValidPassword(true);
       navigate('index');
+      setIsLogin(true);
     } else {
       if (isValidUserName) {
         setIsValidPassword(false);
+        
       }
       console.log('Incorrecto');
       setIsValidUser(false);

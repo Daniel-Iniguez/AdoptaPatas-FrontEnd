@@ -10,20 +10,30 @@ import MainLayout from './_search/MainLayout'
 import Home from './_search/pages/Home'
 import Footer from './components/layout/Footer'
 import { PetCards } from './_search/pages/Adopt/PetCards'
+import { useState } from 'react'
+import { Navbar2 } from './components/layout/Navbar2'
+import { useEffect } from 'react'
 
 
 function App() {
+  const [isLogin, setIsLogin] = useState(!(localStorage.getItem('isLogin') === 'false'));
+
+  useEffect(() => {
+    // Guardar el valor actual en localStorage cuando la variable cambia
+    localStorage.setItem('isLogin', isLogin.toString());
+  }, [isLogin]);
+  console.log(isLogin);
   return (
     <main className='text-blue-800'>
-      <Navbar />
+      {isLogin ?  <Navbar2 /> : <Navbar />}
       <Routes>
         <Route element={<MainLayout />}>
           <Route index element={<Home />} />
         </Route>
 
         {/* Public Routes */}
-        <Route element={<AuthLayout/>}>
-          <Route path='/sign-in' element={<SignInForm />} />
+        <Route element={<AuthLayout />}>
+          <Route path='/sign-in' element={<SignInForm setIsLogin={setIsLogin} />} />
           <Route path='/sign-up' element={<SignUpForm />} />
         </Route>
 
@@ -33,8 +43,8 @@ function App() {
         </Route>
 
         <Route path='/pet-card' element={<PetCards />} />
-        
-        
+
+
       </Routes>
       <Footer />
     </main>
