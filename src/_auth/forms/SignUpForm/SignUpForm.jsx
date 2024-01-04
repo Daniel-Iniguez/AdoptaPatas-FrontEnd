@@ -211,7 +211,7 @@ function SignUpForm() {
   
   return (
     <>
-      <main className="grid grid-cols-1 sm:grid-cols-1 lg:grid-cols-5  gap-2 mx-auto bg-main-bg-color ">
+      <main className="main-auth grid grid-cols-1 sm:grid-cols-1 lg:grid-cols-5  gap-2 mx-auto bg-main-bg-color ">
         {/* Carrusel Perritos*/}
         <div className=" hidden lg:block col-span-2 my-auto">
           <img

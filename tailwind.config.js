@@ -20,7 +20,7 @@ export default {
         "secondary2-bg-color": "#E9ECE5",
         "main-text-color": "#393838",
         "text-color": "#656464",
-        "first-section-color": "F3F3F3",
+        "first-section-color": "#F3F3F3",
         "dark-pink": "#d9a1a4",
         "hover-pink": "#e5bcbc",
         "buttonColor": '#F28482',

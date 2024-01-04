@@ -13,41 +13,45 @@ import { PetCards } from './_search/pages/Adopt/PetCards'
 import { useState } from 'react'
 import { Navbar2 } from './components/layout/Navbar2'
 import { useEffect } from 'react'
+import { AboutUs } from './_search/pages/AboutUs/AboutUs'
+import { UserProvider } from './_auth/context/userProvider'
+
 
 
 function App() {
-  const [isLogin, setIsLogin] = useState(!(localStorage.getItem('isLogin') === 'false'));
+  const usersData = JSON.parse(localStorage.getItem('users')) || [];
 
+  const [isLogin, setIsLogin] = useState(localStorage.getItem('isLogin') || []);
   useEffect(() => {
     // Guardar el valor actual en localStorage cuando la variable cambia
-    localStorage.setItem('isLogin', isLogin.toString());
+    localStorage.setItem('isLogin', isLogin);
   }, [isLogin]);
-  console.log(isLogin);
+  console.log("isLogin?", isLogin);
+
+  const activeUser = usersData.find(u => (u.userName === isLogin ));
+  console.log("Usuario Logueado: ",activeUser);
+
   return (
-    <main className='text-blue-800'>
-      {isLogin ?  <Navbar2 /> : <Navbar />}
+    <UserProvider>
+      {isLogin.length > 0 ? <Navbar2 setIsLogin={setIsLogin} /> : <Navbar />}
       <Routes>
         <Route element={<MainLayout />}>
           <Route index element={<Home />} />
+          <Route path='/about-us' element={<AboutUs />} />
         </Route>
-
         {/* Public Routes */}
         <Route element={<AuthLayout />}>
           <Route path='/sign-in' element={<SignInForm setIsLogin={setIsLogin} />} />
           <Route path='/sign-up' element={<SignUpForm />} />
         </Route>
-
         {/* Private Routes */}
         <Route element={<RootLayout />}>
           <Route path='/social' element={<HomeFeed />} />
         </Route>
-
         <Route path='/pet-card' element={<PetCards />} />
-
-
       </Routes>
       <Footer />
-    </main>
+    </UserProvider>
   )
 }
 
