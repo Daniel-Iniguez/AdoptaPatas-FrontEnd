@@ -104,27 +104,18 @@ export default function AccountMenu({ setIsLogin }) {
                 <MenuItem onClick={handleClose}>
                     <Avatar /> {usuario.name} {usuario.lastName}
                 </MenuItem>
-                <MenuItem onClick={handleClose}>
-                    <Avatar /> My account
-                </MenuItem>
-                <Divider />
-                <MenuItem onClick={handleClose}>
-                    <ListItemIcon>
-                        <PersonAdd fontSize="small" />
-                    </ListItemIcon>
-                    Add another account
-                </MenuItem>
+                <Divider />  
                 <MenuItem onClick={handleClose}>
                     <ListItemIcon>
                         <Settings fontSize="small" />
                     </ListItemIcon>
-                    Settings
+                    Configuracion
                 </MenuItem>
                 <MenuItem onClick={handleLogOut}>
                     <ListItemIcon>
                         <Logout fontSize="small" />
                     </ListItemIcon>
-                    Logout
+                    Cerrar la sesion de @{usuario.userName}
                 </MenuItem>
             </Menu>
         </React.Fragment>
