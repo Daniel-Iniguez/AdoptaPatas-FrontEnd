@@ -15,6 +15,7 @@ import { Navbar2 } from './components/layout/Navbar2'
 import { useEffect } from 'react'
 import { AboutUs } from './_search/pages/AboutUs/AboutUs'
 import { UserProvider } from './_auth/context/userProvider'
+import { Porfile } from './_search/pages/Porfile'
 
 
 
@@ -43,6 +44,7 @@ function App() {
         <Route element={<AuthLayout />}>
           <Route path='/sign-in' element={<SignInForm setIsLogin={setIsLogin} />} />
           <Route path='/sign-up' element={<SignUpForm />} />
+          <Route path='/porfile' element={<Porfile />} />
         </Route>
         {/* Private Routes */}
         <Route element={<RootLayout />}>

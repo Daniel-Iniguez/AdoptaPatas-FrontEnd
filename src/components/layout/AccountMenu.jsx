@@ -42,14 +42,16 @@ export default function AccountMenu({ setIsLogin }) {
         setAnchorEl(null);
     };
 
-    
+    const handlePorfile = () => {
+        navigate('/porfile');
+    };
+
     const handleLogOut = (e) => {
         e.preventDefault();
         navigate('/sign-in');
         setIsLogin([]);
         setUsuario({});
     }
-    console.log(usuario.name);
     return (
         <React.Fragment>
             <Box sx={{ display: 'flex', alignItems: 'center', textAlign: 'center' }}>
@@ -101,7 +103,7 @@ export default function AccountMenu({ setIsLogin }) {
                 transformOrigin={{ horizontal: 'right', vertical: 'top' }}
                 anchorOrigin={{ horizontal: 'right', vertical: 'bottom' }}
             >
-                <MenuItem onClick={handleClose}>
+                <MenuItem onClick={handlePorfile}>
                     <Avatar /> {usuario.name} {usuario.lastName}
                 </MenuItem>
                 <Divider />  
