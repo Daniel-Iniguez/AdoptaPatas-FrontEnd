@@ -30,8 +30,8 @@ export default function AccountMenu({ setIsLogin }) {
             background-color: ${colors.buttonColor}
         }
     `
-    
-    const {usuario,setUsuario} = useContext(UserContext);
+
+    const { usuario, setUsuario } = useContext(UserContext);
 
     const [anchorEl, setAnchorEl] = React.useState(null);
     const open = Boolean(anchorEl);
@@ -104,9 +104,9 @@ export default function AccountMenu({ setIsLogin }) {
                 anchorOrigin={{ horizontal: 'right', vertical: 'bottom' }}
             >
                 <MenuItem onClick={handlePorfile}>
-                    <Avatar /> {usuario.name} {usuario.lastName}
+                    <Avatar alt={usuario.name} src="src\assets\img\About-Us\DanielIñiguezz.jpeg" sx={{ width: 32, height: 32, bgcolor: colors.buttonColor }} />{usuario.name} {usuario.lastName}
                 </MenuItem>
-                <Divider />  
+                <Divider />
                 <MenuItem onClick={handleClose}>
                     <ListItemIcon>
                         <Settings fontSize="small" />
