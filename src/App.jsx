@@ -17,6 +17,7 @@ import { AboutUs } from './_search/pages/AboutUs/AboutUs'
 import { UserProvider } from './_auth/context/userProvider'
 import { Porfile } from './_search/pages/Porfile'
 import Contact from './_contact/Contact'
+import Donaciones from './_search/pages/Donaciones/Donaciones'
 
 
 
@@ -46,6 +47,7 @@ function App() {
           <Route path='/sign-in' element={<SignInForm setIsLogin={setIsLogin} />} />
           <Route path='/sign-up' element={<SignUpForm />} />
           <Route path='/contact' element={<Contact/>} />
+          <Route path='/donation' element={<Donaciones/>} />
           <Route path='/porfile' element={<Porfile />} />
         </Route>
         {/* Private Routes */}

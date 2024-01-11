@@ -29,7 +29,7 @@ function Footer() {
             <Link className='text-[15px] md:text-[1rem] hover:text-hover-pink transition' to='/contact'>
               Contacto
             </Link>
-            <Link className='text-[15px] md:text-[1rem] hover:text-hover-pink transition' to=''>
+            <Link className='text-[15px] md:text-[1rem] hover:text-hover-pink transition' to='/donation'>
               Apoya este proyecto
             </Link>
             <Link className='text-[15px] md:text-[1rem] hover:text-hover-pink transition' to=''>
