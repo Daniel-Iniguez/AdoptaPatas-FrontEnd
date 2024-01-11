@@ -1,0 +1,26 @@
+body,
+html {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+}
+
+.card-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  height: 70vh;
+}
+
+.card {
+  /* Adjust the margin between cards */
+  transition: transform 0.7s ease-in-out;
+  transform-origin: center bottom;
+  filter: brightness(100%);
+}
+
+.card:hover {
+  filter: brightness(104%);
+  transition: all 1s ease-in-out;
+}

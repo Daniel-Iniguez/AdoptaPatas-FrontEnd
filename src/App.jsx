@@ -19,6 +19,8 @@ import { Porfile } from './_search/pages/Porfile'
 import Contact from './_contact/Contact'
 import Donaciones from './_search/pages/Donaciones/Donaciones'
 import InvolveApp from './_search/pages/Involucrate/InvolveApp'
+import Search from './_search/pages/Search'
+import PetDetails from './components/pets/PetDetails'
 
 
 
@@ -32,8 +34,8 @@ function App() {
   }, [isLogin]);
   console.log("isLogin?", isLogin);
 
-  const activeUser = usersData.find(u => (u.userName === isLogin ));
-  console.log("Usuario Logueado: ",activeUser);
+  const activeUser = usersData.find(u => (u.userName === isLogin));
+  console.log("Usuario Logueado: ", activeUser);
 
   return (
     <UserProvider>
@@ -41,15 +43,17 @@ function App() {
       <Routes>
         <Route element={<MainLayout />}>
           <Route index element={<Home />} />
+          <Route path='/search' element={<Search />} />
+          <Route path="/pet-detail/:id" element={<PetDetails />} />
           <Route path='/about-us' element={<AboutUs />} />
         </Route>
         {/* Public Routes */}
         <Route element={<AuthLayout />}>
           <Route path='/sign-in' element={<SignInForm setIsLogin={setIsLogin} />} />
           <Route path='/sign-up' element={<SignUpForm />} />
-          <Route path='/contact' element={<Contact/>} />
-          <Route path='/involucrate' element={<InvolveApp isLogin={isLogin}/>} />
-          <Route path='/donation' element={<Donaciones/>} />
+          <Route path='/contact' element={<Contact />} />
+          <Route path='/involucrate' element={<InvolveApp isLogin={isLogin} />} />
+          <Route path='/donation' element={<Donaciones />} />
           <Route path='/porfile' element={<Porfile />} />
         </Route>
         {/* Private Routes */}

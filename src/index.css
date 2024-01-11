@@ -2,10 +2,6 @@
 @tailwind components;
 @tailwind utilities;
 
-/* @charset "UTF-8"; */
-
-/* Adding Fonts  */
-
 @font-face {
     font-family: 'Nunito Bold';
     src: url("./assets/fonts/Nunito/Nunito-Bold.ttf");
@@ -46,30 +42,30 @@
     src: url("./assets/fonts/OpenSans/OpenSauceSans-SemiBold.ttf");
 }
 
-/* Esto permite que la propiedad sea aplicada a todos los elementos y sub elementos (::after) del documento HTML, border-box permite agregar el padding y el margen dentro de la medida establecida de cada elemento, es decir, la medida queda igual.  */
-*,
-*::before,
-*::after {
-    box-sizing: border-box;
+@font-face {
+    font-family: "Open Sans Extra";
+    src: url('./assets/fonts/OpenSans/OpenSauceSans-ExtraBold.ttf');
 }
 
-/* Paleta de Colores */
+@font-face {
+    font-family: "Open Sans Black";
+    src: url('./assets/fonts/OpenSans/OpenSauceSans-Black.ttf');
+}
+
 :root {
-  --main-section-bg-clr: #F3F3F3;
+    --main-section-bg-clr: #F3F3F3;
 }
 
 ::selection {
     background-color: var(--secondary-bg-clr);
 }
 
-body {
-    margin: 0;
+* {
     padding: 0;
+    margin: 0;
 }
 
-@keyframes spin {
-    to {
-        transform: rotate(360deg);
-    }
+body {
+    padding: 0;
+    margin: 0;
 }
-

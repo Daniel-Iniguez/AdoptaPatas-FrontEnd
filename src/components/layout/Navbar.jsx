@@ -13,21 +13,21 @@ function Navbar() {
   const content =
     <>
       <div className='lg:hidden block absolute top-14 w-full left-0 right-0 h-[100vh]
-      py-8 bg-main-bg-color'>
+      py-8 bg-main-bg-color z-50'>
         <ul className='text-center text-[1.1rem] p-20'>
-          <Link  to='/pet-card'>
+          <Link to='/search'>
             <li className='transition my-4 py-4 border-b hover:bg-dark-pink hover:rounded'>Adoptar</li>
           </Link>
-          <Link  to='/about-us'>
+          <Link to='/about-us'>
             <li className='transition my-4 py-4 border-b hover:bg-dark-pink hover:rounded'>Acerca De</li>
           </Link>
-          <Link  to='/involucrate'>
+          <Link to='/involucrate'>
             <li className='transition my-4 py-4 border-b hover:bg-dark-pink hover:rounded'>Involúcrate</li>
           </Link>
-          <Link  to='/sign-in'>
+          <Link to='/sign-in'>
             <li className='transition my-4 py-4 border-b hover:bg-dark-pink hover:rounded'>Iniciar Sesión</li>
           </Link>
-          <Link  to='/sign-up'>
+          <Link to='/sign-up'>
             <li className='transition my-4 py-4 border-b hover:bg-dark-pink hover:rounded'>Regístrate</li>
           </Link>
         </ul>
@@ -37,7 +37,7 @@ function Navbar() {
 
   return (
     <nav className='text-main-text-color text-[0.9rem]'>
-      <div className='h-9vh flex justify-between z-50 bg-main-bg-color lg:py-4 px-10 py-4'>
+      <div className='h-9vh flex justify-between z-50 bg-secondary-bg-color lg:py-4 px-10 py-4'>
         <div className='flex items-center flex-1'>
           <Link to='/'>
             <img className='lg:w-[11rem] md:w-[9rem] sm:w-[8rem] w-[8rem] transition-all' src={Logo} alt="" />
@@ -46,19 +46,19 @@ function Navbar() {
         <div className='lg:flex md:flex lg:flex-auto items-center justify-end hidden '>
           <div className='flex-10 '>
             <ul className='flex gap-10 mr-1 items-center'>
-              <Link  to='/pet-card'>
+              <Link to='/pet-card'>
                 <li className='hover:text-black transition cursor-pointer' >Adoptar</li>
               </Link>
-              <Link  to='/about-us'>
+              <Link to='/about-us'>
                 <li className='hover:text-black transition cursor-pointer' >Acerca De</li>
               </Link>
-              <Link  to='/involucrate'>
+              <Link to='/involucrate'>
                 <li className='hover:text-black transition cursor-pointer' >Involúcrate</li>
               </Link>
-              <Link  to='/sign-in'>
+              <Link to='/sign-in'>
                 <li className='hover:text-white transition duration-200 ease-in-out px-6 py-[0.5rem] rounded-3xl border-2 border-main-text-color hover:bg-main-text-color cursor-pointer' >Iniciar Sesión</li>
               </Link>
-              <Link  to='/sign-up'>
+              <Link to='/sign-up'>
                 <li className='hover:text-black transition duration-200 ease-in-out cursor-pointer bg-main-text-color px-7 py-[0.5rem] text-white rounded-3xl hover:bg-white' >Regístrate</li>
               </Link>
             </ul>

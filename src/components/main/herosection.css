@@ -1,0 +1,22 @@
+.img-container {
+  position: absolute;
+  width: 320px;
+  height: 90%;
+  top: 10%;
+  right: -5%;
+  rotate: -45deg;
+  z-index: 5;
+  background-image: url('../../assets/img/Home/BgElement_HeroSection.png');
+  background-size: cover;
+}
+
+.img-container2 {
+  position: absolute;
+  width: 350px;
+  height: 85%;
+  bottom: 0%;
+  left: 0%;
+  z-index: 6;
+  background-image: url('../../assets/img/Home/BgElement2_HeroSection.png');
+  background-size: cover;
+}
