@@ -46,7 +46,7 @@ export const AboutUs_Carousel = () => {
                 <SwiperSlide className='bg-secondary2-bg-color text-center'>
                     <img src="src\assets\img\About-Us\JanettVargas.png" alt="" className='opacity-100 w-[80%] h-[60%] object-cover rounded-[20%] relative mx-auto mb-2 ' />
                     <span className="slider_code text-[#7b7992] ">Back-End</span>
-                    <div className="slider_title text-[24px] text-black my-1">Janett Vargas</div>
+                    <div className="slider_title text-[24px] text-black my-1">Janett Venegas</div>
                     <div className="slider_text text-[#4e4a67]">
                         Desarrolladora enfocada en las tecnologías emergentes para
                         abordar desafíos y aportar mejoras en proyectos del área.

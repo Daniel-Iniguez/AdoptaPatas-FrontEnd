@@ -18,16 +18,28 @@ export const Porfile = () => {
                         <Avatar alt='' src="src\assets\img\About-Us\DanielIñiguezz.jpeg" className="mx-auto top-24" sx={{ width: 200, height: 200, bgcolor: colors.buttonColor }}></Avatar>
                     </div>
                 </section>
-                <section className="justify-center align-middle flex">
+                <section className="justify-center align-middle flex mb-6">
                     <div className=" w-[50%] bg-first-section-color rounded-3xl mt-16 shadow-md">
                         <p className="name-text text-center text-[2rem] mt-8 mx-auto">{usuario.name} {usuario.lastName}</p>
                         <p className="userName-text text-center text-[1.5rem] my-0 mx-auto">@{usuario.userName}</p>
-                        <div className=" grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-2 my-4">
-                            <div className="col-span-1 mx-auto">
-                                <p className="my-3 text-[1.2rem]">97 - Siguiendo</p>
+                        <div className=" grid grid-cols-1 xs:grid-cols-2 md:grid-cols-2 lg:grid-cols-2 my-4">
+                            <div className="w-[50%] mx-auto mt-10 border-2 rounded-[50px] border-buttonColor my-3 ">
+                                <button
+                                    id="buttonContact"
+
+                                    className="cursor-pointer mx-auto text-center py-1 px-2 mb-1 text-[1.3rem] flex justify-center align-middle w-full"
+                                >
+                                    588 - Siguiendo
+                                </button>
                             </div>
-                            <div className="col-span-1 mx-auto">
-                                <p className="my-3 text-[1.2rem]">1.200 - Seguidores</p>
+                            <div className="w-[50%] mx-auto mt-10 border-2 rounded-[50px] border-buttonColor my-3 ">
+                                <button
+                                    id="buttonContact"
+
+                                    className="cursor-pointer mx-auto text-center py-1 px-2 mb-1 text-[1.3rem] flex justify-center align-middle w-full"
+                                >
+                                    792 - Seguidores
+                                </button>
                             </div>
                         </div>
                         <p className="text-center my-5 mx-auto">Lorem ipsum dolor sit amet consectetur adipisicing elit. Eaque, suscipit! Officia voluptates natus architecto ex molestias doloribus, eum autem omnis nihil debitis rem, nam molestiae maxime explicabo repellat, odio animi.</p>
@@ -44,14 +56,16 @@ export const Porfile = () => {
                             </div>
                         </div>
 
-                        <Button variant="contained" color="success">
-                            Success
-                        </Button>
+                        <div className="w-[25%] mx-auto mt-10 border-2 rounded-[50px] border-buttonColor bg-buttonColor hover:bg-main-text-color  text-white my-3 ">
+                            <button
+                                id="buttonContact"
 
+                                className="cursor-pointer mx-auto text-center py-1 px-2 mb-1 text-[1.3rem] flex justify-center align-middle w-full"
+                            >
+                                Actualizar información
+                            </button>
+                        </div>
                     </div>
-                </section>
-                <section className="justify-center align-middle flex">
-
                 </section>
 
 

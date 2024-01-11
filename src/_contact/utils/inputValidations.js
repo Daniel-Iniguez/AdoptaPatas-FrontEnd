@@ -58,7 +58,7 @@ export const name_validation = {
   
   export const num_validation = {
     name: 'Telefono',
-    label: 'Telefono',
+    label: 'Teléfono',
     type: 'number',
     id: 'num',
     validation: {
@@ -79,7 +79,7 @@ export const name_validation = {
   
   export const email_validation = {
     name: 'Correo Electronico',
-    label: 'Correo Electronico',
+    label: 'Correo Electrónico ',
     type: 'email',
     id: 'email',
     validation: {

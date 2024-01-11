@@ -265,7 +265,7 @@ function SignUpForm() {
             <TextFieldStyle
               id="email"
               type='email'
-              label="Correo Electronico"
+              label="Correo electrónico"
               variant="standard"
               value={email}
               required
@@ -351,7 +351,7 @@ function SignUpForm() {
             <TextFieldStyle
               type='Number'
               id="phone"
-              label="Telefono"
+              label="Teléfono"
               variant="standard"
               value={phoneNumber}
               fullWidth
@@ -387,7 +387,7 @@ function SignUpForm() {
                   <TextFieldStyle
                     type='Number'
                     id="postalCode"
-                    label="Codigo Postal"
+                    label="Código  Postal"
                     variant="standard"
                     value={postalCode}
                     required
@@ -405,7 +405,7 @@ function SignUpForm() {
 
                 className="cursor-pointer mx-auto text-center py-1 px-2 mb-1 text-[1.3rem] flex justify-center align-middle w-full"
               >
-                Registrate
+                Regístrate
               </button>
             </div>
           </form>

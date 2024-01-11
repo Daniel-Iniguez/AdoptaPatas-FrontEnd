@@ -37,10 +37,7 @@ export const AboutUs = () => {
                     </div>
                     <div className='text-text-color flex align-middle justify-center my-20'>
                         <p className="secondary-text text-[1.2rem] w-[60%]">
-                            Somos una red social mexicana enfocada en la gestión de procesos
-                            de adopción responsables y accesibles para cualquier persona que
-                            quiera darle un hogar a un perrito o gatito en situacion de
-                            calle.
+                            Somos una red social mexicana enfocada en la gestión de procesos de adopción responsables y accesibles para cualquier persona que quiera darle un hogar a un perrito o gatito en situación de calle.
                         </p>
                     </div>
                     <div className='text-main-text-color my-auto'>
@@ -49,7 +46,7 @@ export const AboutUs = () => {
                     </div>
                     <div className='text-text-color flex align-middle justify-center my-20'>
                         <p className="secondary-text text-[1.2rem] w-[60%]">
-                            Buscamos crear un espacio virtual donde las personas puedan encontrar información, detallada y precisa, sobre animales en rescate disponibles para adopción. Reduciendo la población de mascotas abandonadas o en situación de calle
+                            Buscamos crear un espacio virtual donde las personas puedan encontrar información, detallada y precisa, sobre animales en rescate disponibles para adopción. Reduciendo la población de mascotas abandonadas o en situación de calle.
                         </p>
                     </div>
                     <div className='text-main-text-color my-20'>

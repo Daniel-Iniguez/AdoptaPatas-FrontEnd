@@ -84,7 +84,7 @@ function SignInForm({ setIsLogin }) {
       <main className="main-auth grid grid-cols-1 sm:grid-cols-1 lg:grid-cols-5 gap-5 mx-auto bg-main-bg-color ">
         {/* Formulario */}
         <div className=" col-span-3 my-auto  text-main-text-color ">
-          <h2 className="my-10 text-center text-[4rem]" id='place-signUp'>Iniciar Sesion</h2>
+          <h2 className="my-10 text-center text-[4rem]" id='place-signUp'>Iniciar Sesión</h2>
           {!isValidUser ? <p className='text-center text-[2rem]' style={{ color: 'red' }}>{error}</p> : ''}
           <form className=' max-w-[70%] mx-auto' onSubmit={handleLogin} >
             <TextFieldStyle
@@ -138,12 +138,12 @@ function SignInForm({ setIsLogin }) {
             </div>
           </form>
 
-          <p className="text-center text-[1.2rem] my-4">¿No tienes una cuneta?</p>
+          <p className="text-center text-[1.2rem] my-4">¿No tienes una cuenta?</p>
           <Link
             className="text-center text-[1.2rem] flex justify-center my-4 text-buttonColor"
             to="/sign-up"
           >
-            Registrate
+            Regístrate
           </Link>
 
           {/* <div className="flex flex-wrap  mb-0">
