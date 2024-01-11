@@ -18,6 +18,7 @@ import { UserProvider } from './_auth/context/userProvider'
 import { Porfile } from './_search/pages/Porfile'
 import Contact from './_contact/Contact'
 import Donaciones from './_search/pages/Donaciones/Donaciones'
+import InvolveApp from './_search/pages/Involucrate/InvolveApp'
 
 
 
@@ -47,6 +48,7 @@ function App() {
           <Route path='/sign-in' element={<SignInForm setIsLogin={setIsLogin} />} />
           <Route path='/sign-up' element={<SignUpForm />} />
           <Route path='/contact' element={<Contact/>} />
+          <Route path='/involucrate' element={<InvolveApp isLogin={isLogin}/>} />
           <Route path='/donation' element={<Donaciones/>} />
           <Route path='/porfile' element={<Porfile />} />
         </Route>

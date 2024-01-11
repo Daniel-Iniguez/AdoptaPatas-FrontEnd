@@ -21,7 +21,7 @@ export const Navbar2 = ({setIsLogin}) => {
             <Link  to='/about-us'>
               <li className='transition my-4 py-4 border-b hover:bg-dark-pink hover:rounded'>Acerca De</li>
             </Link>
-            <Link  to='/'>
+            <Link  to='/involucrate'>
               <li className='transition my-4 py-4 border-b hover:bg-dark-pink hover:rounded'>Involúcrate</li>
             </Link>
           </ul>
@@ -46,7 +46,7 @@ export const Navbar2 = ({setIsLogin}) => {
                 <Link  to='/about-us'>
                   <li className='hover:text-black transition cursor-pointer' >Acerca De</li>
                 </Link>
-                <Link  to='/'>
+                <Link  to='/involucrate'>
                   <li className='hover:text-black transition cursor-pointer' >Involúcrate</li>
                 </Link>
                 <AccountMenu setIsLogin={setIsLogin}></AccountMenu>
