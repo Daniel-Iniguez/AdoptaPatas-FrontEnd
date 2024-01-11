@@ -2,7 +2,7 @@ import React from 'react'
 
 const ButtonApp = props => {
   return (
-    <div className="w-[50%] mx-auto mt-10 mb-10 border-2 rounded-[50px] border-main-text-color bg-buttonColor hover:bg-main-text-color text-main-text-color">
+    <div className="w-[50%] mx-auto mt-10 mb-10 border-2 rounded-[50px] border-main-text-color bg-buttonColor hover:bg-main-text-color text-white">
 
       <button
         id={props.id}

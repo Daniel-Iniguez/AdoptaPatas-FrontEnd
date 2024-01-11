@@ -48,7 +48,7 @@ const InvolveApp = ({isLogin}) => {
 
             </div>
             <ButtonApp
-                title="Registrate"
+                title="Regístrate"
                 id="buttonRegister"
                 type="button"
                 onClick={toRegisterPage}
