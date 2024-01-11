@@ -1,14 +1,11 @@
 
-.bg-pink{
-background-color: #F2D0D2;
-}
 
 .titulo{
-    font-family: 'Nunito Bold';
+     font-family: "Nunito ExtraBold";
     color: #000;
 }
 
 .texto{
-    font-family: "Open Sans Regular" !important;
+    font-family: "Open Sans Regular" ;
     color: #000;
 }
