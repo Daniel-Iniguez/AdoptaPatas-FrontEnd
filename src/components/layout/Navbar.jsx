@@ -46,7 +46,7 @@ function Navbar() {
         <div className='lg:flex md:flex lg:flex-auto items-center justify-end hidden '>
           <div className='flex-10 '>
             <ul className='flex gap-10 mr-1 items-center'>
-              <Link to='/pet-card'>
+              <Link to='/search'>
                 <li className='hover:text-black transition cursor-pointer' >Adoptar</li>
               </Link>
               <Link to='/about-us'>
