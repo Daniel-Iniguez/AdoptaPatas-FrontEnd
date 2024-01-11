@@ -1,6 +1,6 @@
 import { useContext } from "react"
 import { UserContext } from "../../_auth/context/UserContext"
-import { Avatar } from "@mui/material"
+import { Avatar, Button } from "@mui/material"
 import { colors } from '../../assets/MUI/Colors';
 import PlaceIcon from '@mui/icons-material/Place';
 import CalendarMonthIcon from '@mui/icons-material/CalendarMonth';
@@ -43,6 +43,11 @@ export const Porfile = () => {
 
                             </div>
                         </div>
+
+                        <Button variant="contained" color="success">
+                            Success
+                        </Button>
+
                     </div>
                 </section>
                 <section className="justify-center align-middle flex">

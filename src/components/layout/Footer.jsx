@@ -12,10 +12,10 @@ function Footer() {
       <div className="w-[100%]">
         <div className="flex flex-wrap-reverse gap-[2.8rem] lg:gap-4 lg:flex-nowrap custom-padding-row py-20">
           <div className="w-[100%]  md:text-left text-center place-items-center pr-10 pl-10 lg:w-1/2 lg:place-items-start flex flex-col left-container justify-between md:gap-[2.2rem]">
-            <Link className='text-[15px] md:text-[1rem] hover:text-hover-pink transition' href="">
+            <Link className='text-[15px] md:text-[1rem] hover:text-hover-pink transition' to=''>
               <img className='w-[13rem]' id="footer-logo" src={LogoFooter} alt="" />
             </Link>
-            <Link className='text-[15px] md:text-[1rem] hover:text-hover-pink transition' href="">
+            <Link className='text-[15px] md:text-[1rem] hover:text-hover-pink transition' to=''>
               contacto.adoptapatas@gmail.com
             </Link>
             <p className='text-[15px] md:text-[1rem]' >
@@ -23,22 +23,22 @@ function Footer() {
             </p>
           </div>
           <div className="lg:w-1/2 w-[100%] place-items-center md:text-center pr-10 pl-10 flex flex-col lg:place-items-end right-container justify-between md:gap-[2.2rem]">
-            <Link className='text-[15px] md:text-[1rem] hover:text-hover-pink transition' href="">
+            <Link className='text-[15px] md:text-[1rem] hover:text-hover-pink transition' to=''>
               Preguntas Frecuentes
             </Link>
-            <Link className='text-[15px] md:text-[1rem] hover:text-hover-pink transition' href="">
-              Centro de Información
+            <Link className='text-[15px] md:text-[1rem] hover:text-hover-pink transition' to='/contact'>
+              Contacto
             </Link>
-            <Link className='text-[15px] md:text-[1rem] hover:text-hover-pink transition' href="">
+            <Link className='text-[15px] md:text-[1rem] hover:text-hover-pink transition' to=''>
               Apoya este proyecto
             </Link>
-            <Link className='text-[15px] md:text-[1rem] hover:text-hover-pink transition' href="">
+            <Link className='text-[15px] md:text-[1rem] hover:text-hover-pink transition' to=''>
               Encuentra una mascota
             </Link>
             <ul className="w-[35%] md:w-[30%] flex flex-row justify-between">
               <li>
                 <Link
-                  href=""
+                 to=''
                   className="text-[24px] md:text-[28px] text-white hover:text-hover-pink transition"
                 >
                   <FaFacebook />
@@ -46,7 +46,7 @@ function Footer() {
               </li>
               <li>
                 <Link
-                  href=""
+                 to=''
                   className="text-[24px] md:text-[28px] text-white hover:text-hover-pink transition"
                 >
                   <FaInstagram />
@@ -54,7 +54,7 @@ function Footer() {
               </li>
               <li>
                 <Link
-                  href=""
+                 to=''
                   className="text-[24px] md:text-[28px] text-white hover:text-hover-pink transition"
                 >
                   <FaTwitter />
