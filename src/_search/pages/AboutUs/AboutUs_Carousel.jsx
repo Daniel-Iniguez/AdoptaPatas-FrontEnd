@@ -46,7 +46,7 @@ export const AboutUs_Carousel = () => {
                 <SwiperSlide className='bg-secondary2-bg-color text-center'>
                     <img src="src\assets\img\About-Us\JanettVargas.png" alt="" className='opacity-100 w-[80%] h-[60%] object-cover rounded-[20%] relative mx-auto mb-2 ' />
                     <span className="slider_code text-[#7b7992] ">Back-End</span>
-                    <div className="slider_title text-[24px] text-black my-1">Izcoatl Guerrero Leon</div>
+                    <div className="slider_title text-[24px] text-black my-1">Janett Vargas</div>
                     <div className="slider_text text-[#4e4a67]">
                         Desarrolladora enfocada en las tecnologías emergentes para
                         abordar desafíos y aportar mejoras en proyectos del área.
@@ -72,18 +72,6 @@ export const AboutUs_Carousel = () => {
                         el desarrollo de páginas web tanto en el área del Front-End
                         como en el Back-End. Dispuesto a aprender constantemente
                         cosas nuevas para poder crecer personal y profesionalmente.
-                    </div>
-                </SwiperSlide>
-                <SwiperSlide className='bg-secondary2-bg-color text-center'>
-                    <img src="src\assets\img\About-Us\EduardoRamos.jpeg" alt="" className='opacity-100 w-[80%] h-[60%] object-cover rounded-[20%] relative mx-auto mb-2 ' />
-                    <span className="slider_code text-[#7b7992] ">SCRUM Master</span>
-                    <div className="slider_title text-[24px] text-black my-1">José Eduardo Lopez</div>
-                    <div className="slider_text text-[#4e4a67]">
-                        Entusiasta ingeniero en Tecnologías de la Información con
-                        habilidades sólidas en la creación de soluciones digitales
-                        cautivadoras. Mi enfoque combina diseño atractivo con
-                        funcionalidad avanzada para ofrecer experiencias
-                        excepcionales
                     </div>
                 </SwiperSlide>
                 <SwiperSlide className='bg-secondary2-bg-color text-center'>
