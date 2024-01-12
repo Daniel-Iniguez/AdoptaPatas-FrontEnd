@@ -8,19 +8,40 @@ import '../SignUpForm/SignUp.css'
 import { colors } from '../../../assets/MUI/Colors';
 import { TextFieldStyle } from '../TextFieldStyles';
 import { RegisterPost } from './RegisterPost';
+import axios from 'axios';
 
 
 function SignUpForm() {
+
+  /* // ========= Peticion Get usando api Axios =================
+  const url = "http://localhost:8080/api/v1/users";
+  const getUsersUsingAxios = async (url) => {
+    try {
+      const user = await axios.get(url);
+      console.log("GET Axios", user.data);
+
+    } catch (error) {
+      console.log(error);
+    }
+  } */
+
+
   const navigate = useNavigate(); //Inicio el historial
 
   //Use state para ver u ocultar la contraseña
   const [showPassword, setShowPassword] = useState(false);
   const handleClickShowPassword = () => setShowPassword((show) => !show);
 
-  //Objeto de las opciones de lugares de México
+  //Objeto de las opciones de lugares de México y tipos de usuario
   const flatProps = {
     options: placeMx.map((option) => option.place),
+
   };
+  const flatProps2 = {
+    options: usersType.map((option) => option.type),
+
+  };
+
 
   // valores y validaciones de los inputs
   const [name, setName] = useState(''); // Valor
@@ -39,15 +60,17 @@ function SignUpForm() {
   const [isValidAge, setIsValidAge] = useState(true);
   const [phoneNumber, setPhoneNumber] = useState('');
   const [isValidPhoneNumber, setIsValidPhoneNumber] = useState(true);
-  const [postalCode, setPostalCode] = useState('');
-  const [isValidPostalCode, setIsValidPostalCode] = useState(true);
+  /* const [postalCode, setPostalCode] = useState('');
+  const [isValidPostalCode, setIsValidPostalCode] = useState(true); */
   const [place, setPlace] = useState('');
   const [isValidPlace, setIsValidPlace] = useState(true);
+  const [userType, setUserType] = useState('Individual');
+  const [isValidUserType, setIsValidUserType] = useState(true);
 
   //Validacion si ya existe un usuario y correo electronico
   const [existUser, setExistUser] = useState(false);
   const [existEmail, setExistEmail] = useState(false);
-  
+
 
   //Funciones para obtener el valor del input de cada campo
   const handleNameChange = (e) => {
@@ -75,45 +98,58 @@ function SignUpForm() {
     console.log("handleLastNameChange called");
 
   };
-  const handleUserNameChange = (e) => {
-    const userNameValue = e.target.value;
-    console.log(userNameValue);
-    const users = JSON.parse(localStorage.getItem('users')) || [];
-    const existUser = users.find(u => (u.userName === userNameValue));
-    const regeName = /^[a-zA-Z0-9_-]+(?:\.[a-zA-Z0-9_-]+)*$/;
-    if (userNameValue.length < 2 || userNameValue.length > 50 || !userNameValue.match(regeName)) {
-      setIsValidUserName(false);
-    } else {
-      if(existUser){
-        setExistUser(true);
-      }else{
-        setExistUser(false);
-        setIsValidUserName(true);
-      }
-    }
-    setUserName(userNameValue);
-    console.log("handleUserNameChange called");
+  const handleUserNameChange = async (e) => {
 
+    try {
+      const userNameValue = e.target.value;
+      console.log(userNameValue);
+      const response = await axios.get("http://localhost:8080/api/v1/users");
+      const users = response.data
+      console.log("GET Axios", users.data);
+      //const users = JSON.parse(localStorage.getItem('users')) || [];
+      const existUser = users.find(u => (u.username === userNameValue));
+      const regeName = /^[a-zA-Z0-9_-]+(?:\.[a-zA-Z0-9_-]+)*$/;
+      if (userNameValue.length < 3 || userNameValue.length > 50 || !userNameValue.match(regeName)) {
+        setIsValidUserName(false);
+      } else {
+        if (existUser) {
+          setExistUser(true);
+        } else {
+          setExistUser(false);
+          setIsValidUserName(true);
+        }
+      }
+      setUserName(userNameValue);
+      console.log("handleUserNameChange called");
+    } catch (error) {
+      console.log(error);
+    }
   };
-  const handleEmailChange = (e) => {
-    const userEmail = e.target.value;
-    console.log(userEmail);
-    const users = JSON.parse(localStorage.getItem('users')) || [];
-    const existEmail = users.find(u => (u.email === userEmail));
-    const regeName = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/;
-    if (userEmail.length < 1 || userEmail.length > 50 || !userEmail.match(regeName)) {
-      setIsValidEmail(false);
-    } else {
-      if (existEmail) {
-        setExistEmail(true);
-      }else{
-        setExistEmail(false)
-        setIsValidEmail(true);
+  const handleEmailChange = async (e) => {
+    try {
+      const userEmail = e.target.value;
+      console.log(userEmail);
+      const response = await axios.get("http://localhost:8080/api/v1/users");
+      const users = response.data
+      console.log("GET Axios", users.data);
+      //const users = JSON.parse(localStorage.getItem('users')) || [];
+      const existEmail = users.find(u => (u.email === userEmail));
+      const regeName = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/;
+      if (userEmail.length < 1 || userEmail.length > 50 || !userEmail.match(regeName)) {
+        setIsValidEmail(false);
+      } else {
+        if (existEmail) {
+          setExistEmail(true);
+        } else {
+          setExistEmail(false)
+          setIsValidEmail(true);
+        }
       }
+      setEmail(userEmail);
+      console.log("handleEmailChange called");
+    } catch (error) {
+      console.log(error);
     }
-    setEmail(userEmail);
-    console.log("handleEmailChange called");
-
   };
   const handlePasswordChange = (e) => {
     const userPassword = e.target.value;
@@ -160,7 +196,7 @@ function SignUpForm() {
     setPhoneNumber(userPhoneNumber);
     console.log("handlePhoneNumberChange called");
   };
-  const handlePostalCodeChange = (e) => {
+  /* const handlePostalCodeChange = (e) => {
     const userPostalCode = e.target.value;
     console.log(userPostalCode);
     if (userPostalCode.length < 5 || userPostalCode.length > 10) {
@@ -170,7 +206,7 @@ function SignUpForm() {
     }
     setPostalCode(userPostalCode);
     console.log("handlePostalCodeChange called");
-  };
+  }; */
   const handlePlaceChange = (e) => {
     const userPlace = e.target.value;
     console.log(userPlace);
@@ -178,9 +214,20 @@ function SignUpForm() {
       setIsValidPlace(false);
     } else {
       setIsValidPlace(true);
+      setPlace(userPlace);
     }
-    setPlace(userPlace);
     console.log("handlePlaceChange called");
+  };
+  const handleUserTypeChange = (e) => {
+    const userType = e.target.value;
+    console.log(userType);
+    if (userType == '') {
+      setIsValidUserType(false);
+    } else {
+      setIsValidUserType(true);
+    }
+    setUserType(userType);
+    console.log("handleUserTypeChange called");
   };
 
 
@@ -196,19 +243,19 @@ function SignUpForm() {
       isValidConfirmPassword &&
       isValidAge &&
       isValidPhoneNumber &&
-      isValidPostalCode &&
       isValidPlace &&
+      isValidUserType &&
       !existUser && !existEmail
     ) {
-      RegisterPost(name, lastName, userName, email, password, age, phoneNumber, place, postalCode);
+      RegisterPost(name, lastName, userName, email, password, age, phoneNumber, place, userType);
       // Redirige al usuario a la página de inicio de sesión
       navigate('/sign-in');
-      
+
     } else {
       console.log('Error en el formulario, verifica los datos');
     }
   };
-  
+
   return (
     <>
       <main className="main-auth grid grid-cols-1 sm:grid-cols-1 lg:grid-cols-5  gap-2 mx-auto bg-main-bg-color ">
@@ -258,7 +305,7 @@ function SignUpForm() {
               required
               fullWidth
               error={!isValidUserName || existUser}
-              helperText={isValidUserName ? (existUser? 'El usuaro ya existe, pruebe con otro' : '') : 'Nombre de Usuario Invalido'}
+              helperText={isValidUserName ? (existUser ? 'El usuaro ya existe, pruebe con otro' : '') : 'Nombre de Usuario Invalido'}
               onChange={handleUserNameChange}
               sx={{ marginBottom: '1%' }}
             />
@@ -271,7 +318,7 @@ function SignUpForm() {
               required
               fullWidth
               error={!isValidEmail || existEmail}
-              helperText={isValidEmail ? (existEmail? 'El correo ya esta en uso, pruebe con otro' : '') : 'Email Invalido'}
+              helperText={isValidEmail ? (existEmail ? 'El correo ya esta en uso, pruebe con otro' : '') : 'Email Invalido'}
               onChange={handleEmailChange}
               sx={{ marginBottom: '1%' }}
             />
@@ -384,17 +431,21 @@ function SignUpForm() {
                   />
                 </Grid>
                 <Grid item xs={12} sm={6} sx={{ display: 'flex', justifyContent: 'center' }}>
-                  <TextFieldStyle
-                    type='Number'
-                    id="postalCode"
-                    label="Código  Postal"
-                    variant="standard"
-                    value={postalCode}
-                    required
-                    error={!isValidPostalCode}
-                    helperText={isValidPostalCode ? '' : 'Entre 5 y 10 digitos'}
-                    onChange={handlePostalCodeChange}
-                    sx={{ width: '98%', marginBottom: '1%' }}
+                  <Autocomplete
+                    {...flatProps2}
+                    id="flat-demo"
+                    sx={{ width: '98%' }}
+                    renderInput={(params) => (
+                      <TextFieldStyle
+                        {...params}
+                        label="Tipo de cuenta"
+                        variant="standard"
+                        value={userType}
+                        error={!isValidUserType}
+                        onChange={handleUserTypeChange}
+                        helperText={isValidUserType ? '' : 'Selecciona que tipo de cuenta es'}
+                      />
+                    )}
                   />
                 </Grid>
               </Grid>
@@ -489,5 +540,11 @@ const placeMx = [
   { place: 'La Paz' },
   { place: 'Saltillo' },
 ];
+
+const usersType = [
+  { type: 'Individual' },
+  { type: 'Organización' },
+];
+
 
 export default SignUpForm;

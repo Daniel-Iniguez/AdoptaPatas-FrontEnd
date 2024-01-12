@@ -9,6 +9,7 @@ import { colors } from '../../../assets/MUI/Colors';
 import { TextFieldStyle } from '../TextFieldStyles';
 import { useContext } from 'react';
 import { UserContext } from '../../context/UserContext';
+import axios from 'axios';
 
 
 function SignInForm({ setIsLogin }) {
@@ -28,20 +29,28 @@ function SignInForm({ setIsLogin }) {
   const [error, setError] = useState('');
 
 
-  const handleUserNameChange = (e) => {
-    const userNameValue = e.target.value;
-    console.log(userNameValue);
-    const usersData = JSON.parse(localStorage.getItem('users')) || [];
-    const user = usersData.find(u => (u.userName === userNameValue || u.email === userNameValue));
-    if (user) {
-      console.log('Usuario Registrado:');
-      console.log(user);
-      setIsValidUserName(true);
-    } else {
-      setIsValidUserName(false);
+  const handleUserNameChange = async (e) => {
+    try {
+      const userNameValue = e.target.value;
+      console.log(userNameValue);
+      const response = await axios.get("http://localhost:8080/api/v1/users");
+      const users = response.data;
+      //const usersData = JSON.parse(localStorage.getItem('users')) || [];
+      const user = users.find(u => (u.username === userNameValue || u.email === userNameValue));
+      if (user) {
+        console.log('Usuario Registrado:');
+        console.log(user);
+        setIsValidUserName(true);
+      } else {
+        setIsValidUserName(false);
+      }
+      setUserName(userNameValue);
+      setEmail(userNameValue);
+
+    } catch (error) {
+      console.log(error);
     }
-    setUserName(userNameValue);
-    setEmail(userNameValue);
+
   };
 
   const handlePasswordChange = (e) => {
@@ -53,28 +62,34 @@ function SignInForm({ setIsLogin }) {
 
   const { setUsuario } = useContext(UserContext);
 
-  const handleLogin = (e) => {
-    e.preventDefault();
-    // Validar los datos aquí (comparar con datos en local storage)
-    const usersData = JSON.parse(localStorage.getItem('users')) || [];
-    const user = usersData.find(u => (u.userName === userName || u.email === email) && u.password === password);
-    if (user) {
-      console.log('Correcto');
-      console.log(user);
-      setIsValidUser(true);
-      setIsValidPassword(true);
-      navigate('/');
-      //setIsLogin(true);
-      setIsLogin(userName);
-      setUsuario(user);
-    } else {
-      if (isValidUserName) {
-        setIsValidPassword(false);
+  const handleLogin = async (e) => {
+    try {
+      e.preventDefault();
+      // Validar los datos aquí (comparar con datos en local storage)
+      //const usersData = JSON.parse(localStorage.getItem('users')) || [];
+      const response = await axios.get("http://localhost:8080/api/v1/users");
+      const users = response.data;
+      const user = users.find(u => (u.username === userName || u.email === email) && u.password === password);
+      if (user) {
+        console.log('Correcto');
+        console.log(user);
+        setIsValidUser(true);
+        setIsValidPassword(true);
+        navigate('/');
+        //setIsLogin(true);
+        setIsLogin(userName);
+        setUsuario(user);
+      } else {
+        if (isValidUserName) {
+          setIsValidPassword(false);
 
+        }
+        console.log('Incorrecto');
+        setIsValidUser(false);
+        setError('Usuario o contraseña incorrectos');
       }
-      console.log('Incorrecto');
-      setIsValidUser(false);
-      setError('Usuario o contraseña incorrectos');
+    } catch (error) {
+      console.log(error);
     }
 
   };

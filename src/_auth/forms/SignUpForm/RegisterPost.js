@@ -1,3 +1,4 @@
+import axios from "axios";
 
 /** 
  *  Función para regitrar a un usuario en el localstorage
@@ -11,27 +12,51 @@
  * @param {place} city
  * @param {postalCode} postalCode 
  */
-export const RegisterPost = (name, lastName, userName, email, password, age, phoneNumber, place, postalCode) => {
-    
-    const userData = {
-        name,
-        lastName,
-        userName,
-        email,
-        password,
-        age,
-        phoneNumber,
-        postalCode,
-        place,
-      };
+export const RegisterPost = (name, lastName, userName, email, password, age, phoneNumber, place, role, userType) => {
 
-      // Obtengo del localStorage
-      const existingUsers = JSON.parse(localStorage.getItem('users')) || [];
-      // Se Agrega el nuevo usuario al array
-      const updatedUsers = [...existingUsers, userData];
-      // Guarda el array actualizado en el localStorage
-      localStorage.setItem('users', JSON.stringify(updatedUsers));
-      
-    
+  // ========== Peticion POST usando api axios ================
+  const url = "http://localhost:8080/api/v1/users";
+  const postUsingAxios = async (url) => {
+    const user = {
+      firstName: name,
+      lastName: lastName,
+      username: userName,
+      age: age,
+      email: email,
+      phone: phoneNumber,
+      password: password,
+      city: place,
+      state: "México",
+      role: "Adopter",
+      userType: userType
+    }
+
+    const response = await axios.post(url, user);
+    console.log("POST Axios", response.data);
+  }
+  postUsingAxios(url);
+
+
+// ===== LOCAL STORAGE ========
+  const userData = {
+    name,
+    lastName,
+    userName,
+    email,
+    password,
+    age,
+    phoneNumber,
+    userType,
+    place,
+  };
+
+  // Obtengo del localStorage
+  const existingUsers = JSON.parse(localStorage.getItem('users')) || [];
+  // Se Agrega el nuevo usuario al array
+  const updatedUsers = [...existingUsers, userData];
+  // Guarda el array actualizado en el localStorage
+  localStorage.setItem('users', JSON.stringify(updatedUsers));
+
+
 
 }
