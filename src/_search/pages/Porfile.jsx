@@ -20,8 +20,8 @@ export const Porfile = () => {
                 </section>
                 <section className="justify-center align-middle flex mb-6">
                     <div className=" w-[50%] bg-first-section-color rounded-3xl mt-16 shadow-md">
-                        <p className="name-text text-center text-[2rem] mt-8 mx-auto">{usuario.name} {usuario.lastName}</p>
-                        <p className="userName-text text-center text-[1.5rem] my-0 mx-auto">@{usuario.userName}</p>
+                        <p className="name-text text-center text-[2rem] mt-8 mx-auto">{usuario.firstName} {usuario.lastName}</p>
+                        <p className="userName-text text-center text-[1.5rem] my-0 mx-auto">@{usuario.username}</p>
                         <div className=" grid grid-cols-1 xs:grid-cols-2 md:grid-cols-2 lg:grid-cols-2 my-4">
                             <div className="w-[50%] mx-auto mt-10 border-2 rounded-[50px] border-buttonColor my-3 ">
                                 <button
@@ -45,8 +45,8 @@ export const Porfile = () => {
                         <p className="text-center my-5 mx-auto">Lorem ipsum dolor sit amet consectetur adipisicing elit. Eaque, suscipit! Officia voluptates natus architecto ex molestias doloribus, eum autem omnis nihil debitis rem, nam molestiae maxime explicabo repellat, odio animi.</p>
                         <div className=" grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-2 mx-5 my-3">
                             <div className="col-span-2 ">
-                                <p className="my-3"><PlaceIcon className="mx-2" />Ubicación: {usuario.place}</p>
-                                <p className="my-3"><PhoneIcon className="mx-2" />Numero de telefono: {usuario.phoneNumber}</p>
+                                <p className="my-3"><PlaceIcon className="mx-2" />Ubicación: {usuario.city}</p>
+                                <p className="my-3"><PhoneIcon className="mx-2" />Numero de telefono: {usuario.phone}</p>
                                 <p className="my-3"><CalendarMonthIcon className="mx-2" />Edad: {usuario.age}</p>
                                 <p className="my-3"><EmailIcon className="mx-2" />Email: {usuario.email}</p>
 
