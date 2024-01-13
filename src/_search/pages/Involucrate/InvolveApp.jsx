@@ -18,7 +18,7 @@ const InvolveApp = ({isLogin}) => {
     return (
         <main className="">
             <section className="bg-main-bg-color text-center max-h-[60vh] overflow-hidden">
-                <h2 className="titulo-inv text-[6rem] text-main-text-color mt-20 relative z-10 mb-5 hover:text-[7rem]">
+                <h2 className="titulo-inv text-[6rem] text-main-text-color mt-20 relative z-10 mb-5">
                     Involucrate y Adopta Una Mascota
                 </h2>
 

@@ -13,35 +13,11 @@ import axios from 'axios';
 
 function SignUpForm() {
 
-  /* // ========= Peticion Get usando api Axios =================
-  const url = "http://localhost:8080/api/v1/users";
-  const getUsersUsingAxios = async (url) => {
-    try {
-      const user = await axios.get(url);
-      console.log("GET Axios", user.data);
-
-    } catch (error) {
-      console.log(error);
-    }
-  } */
-
-
   const navigate = useNavigate(); //Inicio el historial
 
   //Use state para ver u ocultar la contraseña
   const [showPassword, setShowPassword] = useState(false);
   const handleClickShowPassword = () => setShowPassword((show) => !show);
-
-  //Objeto de las opciones de lugares de México y tipos de usuario
-  const flatProps = {
-    options: placeMx.map((option) => option.place),
-
-  };
-  const flatProps2 = {
-    options: usersType.map((option) => option.type),
-
-  };
-
 
   // valores y validaciones de los inputs
   const [name, setName] = useState(''); // Valor
@@ -103,7 +79,7 @@ function SignUpForm() {
     try {
       const userNameValue = e.target.value;
       console.log(userNameValue);
-      const response = await axios.get("http://localhost:8080/api/v1/users");
+      const response = await axios.get("http://localhost:8080/adoptapatas/v1/users");
       const users = response.data
       console.log("GET Axios", users.data);
       //const users = JSON.parse(localStorage.getItem('users')) || [];
@@ -129,7 +105,7 @@ function SignUpForm() {
     try {
       const userEmail = e.target.value;
       console.log(userEmail);
-      const response = await axios.get("http://localhost:8080/api/v1/users");
+      const response = await axios.get("http://localhost:8080/adoptapatas/v1/users");
       const users = response.data
       console.log("GET Axios", users.data);
       //const users = JSON.parse(localStorage.getItem('users')) || [];
@@ -414,7 +390,7 @@ function SignUpForm() {
               <Grid container >
                 <Grid item xs={12} sm={6} sx={{ display: 'flex', justifyContent: 'center' }} >
                   <Autocomplete
-                    {...flatProps}
+                    options={placeMx}
                     id="flat-demo"
                     sx={{ width: '98%' }}
                     renderInput={(params) => (
@@ -432,8 +408,8 @@ function SignUpForm() {
                 </Grid>
                 <Grid item xs={12} sm={6} sx={{ display: 'flex', justifyContent: 'center' }}>
                   <Autocomplete
-                    {...flatProps2}
                     id="flat-demo"
+                    options={usersType}
                     sx={{ width: '98%' }}
                     renderInput={(params) => (
                       <TextFieldStyle
@@ -510,40 +486,40 @@ function SignUpForm() {
 }
 
 const placeMx = [
-  { place: 'Ciudad de México' },
-  { place: 'Guadalajara' },
-  { place: 'Monterrey' },
-  { place: 'Puebla' },
-  { place: 'Tijuana' },
-  { place: 'Ciudad Juárez' },
-  { place: 'León' },
-  { place: 'Zapopan' },
-  { place: 'Monclova' },
-  { place: 'Cancún' },
-  { place: 'Mérida' },
-  { place: 'Acapulco' },
-  { place: 'Querétaro' },
-  { place: 'Toluca' },
-  { place: 'Morelia' },
-  { place: 'Tuxtla Gutiérrez' },
-  { place: 'Culiacán' },
-  { place: 'Hermosillo' },
-  { place: 'Chihuahua' },
-  { place: 'Oaxaca' },
-  { place: 'Aguascalientes' },
-  { place: 'Cuernavaca' },
-  { place: 'Tampico' },
-  { place: 'Veracruz' },
-  { place: 'Campeche' },
-  { place: 'Mazatlán' },
-  { place: 'Xalapa' },
-  { place: 'La Paz' },
-  { place: 'Saltillo' },
+  { label: 'Ciudad de México' },
+  { label: 'Guadalajara' },
+  { label: 'Monterrey' },
+  { label: 'Puebla' },
+  { label: 'Tijuana' },
+  { label: 'Ciudad Juárez' },
+  { label: 'León' },
+  { label: 'Zapopan' },
+  { label: 'Monclova' },
+  { label: 'Cancún' },
+  { label: 'Mérida' },
+  { label: 'Acapulco' },
+  { label: 'Querétaro' },
+  { label: 'Toluca' },
+  { label: 'Morelia' },
+  { label: 'Tuxtla Gutiérrez' },
+  { label: 'Culiacán' },
+  { label: 'Hermosillo' },
+  { label: 'Chihuahua' },
+  { label: 'Oaxaca' },
+  { label: 'Aguascalientes' },
+  { label: 'Cuernavaca' },
+  { label: 'Tampico' },
+  { label: 'Veracruz' },
+  { label: 'Campeche' },
+  { label: 'Mazatlán' },
+  { label: 'Xalapa' },
+  { label: 'La Paz' },
+  { label: 'Saltillo' },
 ];
 
 const usersType = [
-  { type: 'Individual' },
-  { type: 'Organización' },
+  { label: 'Individual' },
+  { label: 'Organización' },
 ];
 
 
