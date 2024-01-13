@@ -42,6 +42,7 @@ function SignUpForm() {
   const [isValidPlace, setIsValidPlace] = useState(true);
   const [userType, setUserType] = useState('Individual');
   const [isValidUserType, setIsValidUserType] = useState(true);
+  const [role, setRole] = useState('Adopter');
 
   //Validacion si ya existe un usuario y correo electronico
   const [existUser, setExistUser] = useState(false);
@@ -79,7 +80,7 @@ function SignUpForm() {
     try {
       const userNameValue = e.target.value;
       console.log(userNameValue);
-      const response = await axios.get("http://localhost:8080/adoptapatas/v1/users");
+      const response = await axios.get("http://localhost:8080/adoptapatas/v2/users");
       const users = response.data
       console.log("GET Axios", users.data);
       //const users = JSON.parse(localStorage.getItem('users')) || [];
@@ -105,7 +106,7 @@ function SignUpForm() {
     try {
       const userEmail = e.target.value;
       console.log(userEmail);
-      const response = await axios.get("http://localhost:8080/adoptapatas/v1/users");
+      const response = await axios.get("http://localhost:8080/adoptapatas/v2/users");
       const users = response.data
       console.log("GET Axios", users.data);
       //const users = JSON.parse(localStorage.getItem('users')) || [];
@@ -191,19 +192,25 @@ function SignUpForm() {
     } else {
       setIsValidPlace(true);
       setPlace(userPlace);
+      console.log("handlePlaceChange called");
     }
-    console.log("handlePlaceChange called");
   };
   const handleUserTypeChange = (e) => {
     const userType = e.target.value;
     console.log(userType);
     if (userType == '') {
       setIsValidUserType(false);
-    } else {
+    } else if(userType == 'Shelter'){
+      setRole('PetPoster')
       setIsValidUserType(true);
+      setUserType(userType);
+      console.log("handleUserTypeChange called");
+    }else{
+      setIsValidUserType(true);
+      setUserType(userType);
+      console.log("handleUserTypeChange called");
     }
-    setUserType(userType);
-    console.log("handleUserTypeChange called");
+
   };
 
 
@@ -223,7 +230,7 @@ function SignUpForm() {
       isValidUserType &&
       !existUser && !existEmail
     ) {
-      RegisterPost(name, lastName, userName, email, password, age, phoneNumber, place, userType);
+      RegisterPost(name, lastName, userName, email, password, age, phoneNumber, place, userType, role);
       // Redirige al usuario a la página de inicio de sesión
       navigate('/sign-in');
 
@@ -438,12 +445,14 @@ function SignUpForm() {
           </form>
 
           <p className="text-center text-[1.2rem] my-4">¿Ya tienes cuenta?</p>
-          <Link
-            className="text-center text-[1.2rem] flex justify-center my-4 text-buttonColor"
-            to="/sign-in"
-          >
-            Inicia Sesion
-          </Link>
+          <div className=' flex justify-center align-middle text-center'>
+            <Link
+              className="text-[1.2rem] flex justify-center align-middle my-4 text-buttonColor"
+              to="/sign-in"
+            >
+              Inicia Sesion
+            </Link>
+          </div>
           {/* <div className="flex flex-wrap  mb-0">
               <div className="flex-1 px-4 flex justify-center items-center">
                 <a className="flex justify-center items-center" href="https://www.facebook.com/">
@@ -519,7 +528,7 @@ const placeMx = [
 
 const usersType = [
   { label: 'Individual' },
-  { label: 'Organización' },
+  { label: 'Shelter' },
 ];
 
 
