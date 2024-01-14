@@ -7,7 +7,7 @@ import { useState } from 'react';
 import '../SignUpForm/SignUp.css'
 import { colors } from '../../../assets/MUI/Colors';
 import { TextFieldStyle } from '../TextFieldStyles';
-import { RegisterPost } from './RegisterPost';
+import { RegisterPost } from './RegisterPost.js';
 import axios from 'axios';
 
 
@@ -40,19 +40,22 @@ function SignUpForm() {
   const [isValidPostalCode, setIsValidPostalCode] = useState(true); */
   const [place, setPlace] = useState('');
   const [isValidPlace, setIsValidPlace] = useState(true);
-  const [userType, setUserType] = useState('Individual');
+  const [userType, setUserType] = useState();
   const [isValidUserType, setIsValidUserType] = useState(true);
-  const [role, setRole] = useState('Adopter');
+  const [isValidUser, setIsValidUser] = useState(false);
 
   //Validacion si ya existe un usuario y correo electronico
   const [existUser, setExistUser] = useState(false);
   const [existEmail, setExistEmail] = useState(false);
 
+  //Error
+  const [error, setError] = useState('');
+
 
   //Funciones para obtener el valor del input de cada campo
   const handleNameChange = (e) => {
     const nameValue = e.target.value;
-    console.log(nameValue);
+    //console.log(nameValue);
     const regeName = /^[A-Za-z\s]+$/;
     if (nameValue.length < 3 || nameValue.length > 50 || !nameValue.match(regeName)) {
       setIsValidName(false);
@@ -64,7 +67,7 @@ function SignUpForm() {
   };
   const handleLastNameChange = (e) => {
     const lastNameValue = e.target.value;
-    console.log(lastNameValue);
+    //console.log(lastNameValue);
     const regeName = /^[A-Za-záéíóúüñÁÉÍÓÚÜÑ\s]+$/;
     if (lastNameValue.length < 4 || lastNameValue.length > 50 || !lastNameValue.match(regeName)) {
       setIsValidLastName(false);
@@ -79,10 +82,10 @@ function SignUpForm() {
 
     try {
       const userNameValue = e.target.value;
-      console.log(userNameValue);
+      //console.log(userNameValue);
       const response = await axios.get("http://localhost:8080/adoptapatas/v2/users");
       const users = response.data
-      console.log("GET Axios", users.data);
+      console.log("%cRespuesta Existosa",'color: green; font-weight: bold;', users.data);
       //const users = JSON.parse(localStorage.getItem('users')) || [];
       const existUser = users.find(u => (u.username === userNameValue));
       const regeName = /^[a-zA-Z0-9_-]+(?:\.[a-zA-Z0-9_-]+)*$/;
@@ -105,7 +108,7 @@ function SignUpForm() {
   const handleEmailChange = async (e) => {
     try {
       const userEmail = e.target.value;
-      console.log(userEmail);
+      //console.log(userEmail);
       const response = await axios.get("http://localhost:8080/adoptapatas/v2/users");
       const users = response.data
       console.log("GET Axios", users.data);
@@ -130,8 +133,8 @@ function SignUpForm() {
   };
   const handlePasswordChange = (e) => {
     const userPassword = e.target.value;
-    console.log(userPassword);
-    const regeName = /^(?=.*[A-Z])(?=.*\d)(?=.*[!@#$%^&*()_+])[A-Za-z\d!@#$%^&*()_+]{8,}$/;
+    //console.log(userPassword);
+    const regeName = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/;
     if (userPassword.length < 8 || userPassword.length > 50 || !userPassword.match(regeName)) {
       setIsValidPassword(false);
     } else {
@@ -142,7 +145,7 @@ function SignUpForm() {
   };
   const handleConfirmPasswordChange = (e) => {
     const userConfirmPassword = e.target.value;
-    console.log(userConfirmPassword);
+    //console.log(userConfirmPassword);
     if (userConfirmPassword != password) {
       setIsValidConfirmPassword(false);
     } else {
@@ -153,7 +156,7 @@ function SignUpForm() {
   };
   const handleAgeChange = (e) => {
     const userAge = e.target.value;
-    console.log(userAge);
+    //console.log(userAge);
     if (userAge < 18 || userAge > 125) {
       setIsValidAge(false);
     } else {
@@ -164,7 +167,7 @@ function SignUpForm() {
   };
   const handleNumberChange = (e) => {
     const userPhoneNumber = e.target.value;
-    console.log(userPhoneNumber);
+    //console.log(userPhoneNumber);
     if (userPhoneNumber.length < 10 || userPhoneNumber.length > 12) {
       setIsValidPhoneNumber(false);
     } else {
@@ -200,21 +203,20 @@ function SignUpForm() {
     console.log(userType);
     if (userType == '') {
       setIsValidUserType(false);
-    } else if(userType == 'Shelter'){
-      setRole('PetPoster')
+    } else if (userType == 'Shelter') {
       setIsValidUserType(true);
-      setUserType(userType);
+      setUserType(2);
       console.log("handleUserTypeChange called");
-    }else{
+    } else {
       setIsValidUserType(true);
-      setUserType(userType);
+      setUserType(1);
       console.log("handleUserTypeChange called");
     }
 
   };
 
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     // Verifica si todos los campos son válidos antes de proceder
     if (
@@ -230,11 +232,19 @@ function SignUpForm() {
       isValidUserType &&
       !existUser && !existEmail
     ) {
-      RegisterPost(name, lastName, userName, email, password, age, phoneNumber, place, userType, role);
-      // Redirige al usuario a la página de inicio de sesión
-      navigate('/sign-in');
+      try {
+        await RegisterPost(name, lastName, userName, email, password, age, phoneNumber, place, userType);
+        setIsValidUser(true);
+        // Redirige al usuario a la página de inicio de sesión
+        navigate('/sign-in');
+      } catch (error) {
+        console.error('Error en la solicitud', error);
+        setError('Error en la solicitud');
+      }
 
     } else {
+      setIsValidUser(false);
+      setError('Error en el formulario, verifica los datos');
       console.log('Error en el formulario, verifica los datos');
     }
   };
@@ -253,6 +263,7 @@ function SignUpForm() {
         {/* Formulario */}
         <div className=" col-span-3 my-auto text-main-text-color ">
           <h2 className="my-10 text-center text-[4rem]" id='place-signUp'>¡Únete y Adopta!</h2>
+          {!isValidUser ? <p className='text-center text-[2rem] mb-10' style={{ color: 'red' }}>{error}</p> : ''}
           <form className='mx-auto max-w-[85%]' onSubmit={handleSubmit} >
             <TextFieldStyle
               id="name"
@@ -433,15 +444,16 @@ function SignUpForm() {
                 </Grid>
               </Grid>
             </Container>
+
             <div className="w-[50%] mx-auto mt-10 border-2 rounded-[50px] border-buttonColor bg-buttonColor hover:bg-main-text-color  text-white ">
               <button
                 id="buttonContact"
-
                 className="cursor-pointer mx-auto text-center py-1 px-2 mb-1 text-[1.3rem] flex justify-center align-middle w-full"
               >
                 Regístrate
               </button>
             </div>
+
           </form>
 
           <p className="text-center text-[1.2rem] my-4">¿Ya tienes cuenta?</p>
