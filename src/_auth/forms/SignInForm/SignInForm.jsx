@@ -33,7 +33,7 @@ function SignInForm({ setIsLogin }) {
     try {
       const userNameValue = e.target.value;
       console.log(userNameValue);
-      const response = await axios.get("http://localhost:8080/adoptapatas/v1/users");
+      const response = await axios.get("http://localhost:8080/adoptapatas/v2/users");
       const users = response.data;
       //const usersData = JSON.parse(localStorage.getItem('users')) || [];
       const user = users.find(u => (u.username === userNameValue || u.email === userNameValue));
