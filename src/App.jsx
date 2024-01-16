@@ -9,7 +9,7 @@ import Navbar from './components/layout/Navbar'
 import MainLayout from './_search/MainLayout'
 import Home from './_search/pages/Home'
 import Footer from './components/layout/Footer'
-import { PetCards } from './_search/pages/Adopt/PetCards'
+import { NewsFeed } from './_search/pages/NewsFeed/NewsFeed'
 import { useState } from 'react'
 import { Navbar2 } from './components/layout/Navbar2'
 import { useEffect } from 'react'
@@ -55,12 +55,13 @@ function App() {
           <Route path='/involucrate' element={<InvolveApp isLogin={isLogin} />} />
           <Route path='/donation' element={<Donaciones />} />
           <Route path='/porfile' element={<Porfile />} />
+          <Route path='/news-feed' element={<NewsFeed />} />
         </Route>
         {/* Private Routes */}
         <Route element={<RootLayout />}>
           <Route path='/social' element={<HomeFeed />} />
         </Route>
-        <Route path='/pet-card' element={<PetCards />} />
+        
       </Routes>
       <Footer />
     </UserProvider>

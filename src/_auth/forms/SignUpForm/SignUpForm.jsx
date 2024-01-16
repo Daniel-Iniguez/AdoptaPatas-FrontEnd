@@ -201,16 +201,16 @@ function SignUpForm() {
   const handleUserTypeChange = (e) => {
     const userType = e.target.value;
     console.log(userType);
-    if (userType == '') {
-      setIsValidUserType(false);
+    if (userType == 'Individual') {
+      setIsValidUserType(true);
+      setUserType(1);
+      console.log("handleUserTypeChange called");
     } else if (userType == 'Shelter') {
       setIsValidUserType(true);
       setUserType(2);
       console.log("handleUserTypeChange called");
     } else {
-      setIsValidUserType(true);
-      setUserType(1);
-      console.log("handleUserTypeChange called");
+      setIsValidUserType(false);
     }
 
   };

@@ -13,8 +13,11 @@ export const Navbar2 = ({ setIsLogin }) => {
   const content =
     <>
       <div className='lg:hidden block absolute top-14 w-full left-0 right-0 h-[100vh]
-        py-8 bg-main-bg-color'>
+      py-8 bg-main-bg-color z-50'>
         <ul className='text-center text-[1.1rem] p-20'>
+          <Link to='/news-feed'>
+            <li className='transition my-4 py-4 border-b hover:bg-dark-pink hover:rounded'>Publicaciones</li>
+          </Link>
           <Link to='/search'>
             <li className='transition my-4 py-4 border-b hover:bg-dark-pink hover:rounded'>Adoptar</li>
           </Link>
@@ -24,6 +27,7 @@ export const Navbar2 = ({ setIsLogin }) => {
           <Link to='/involucrate'>
             <li className='transition my-4 py-4 border-b hover:bg-dark-pink hover:rounded'>Involúcrate</li>
           </Link>
+          
         </ul>
 
       </div>
@@ -40,6 +44,9 @@ export const Navbar2 = ({ setIsLogin }) => {
         <div className='lg:flex md:flex lg:flex-auto items-center justify-end hidden '>
           <div className='flex-10 '>
             <ul className='flex gap-10 mr-1 items-center'>
+              <Link to='/news-feed'>
+                <li className='hover:text-black transition cursor-pointer'>Publicaciones</li>
+              </Link>
               <Link to='/search'>
                 <li className='hover:text-black transition cursor-pointer' >Adoptar</li>
               </Link>
