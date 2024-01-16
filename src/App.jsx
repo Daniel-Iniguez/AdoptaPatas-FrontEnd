@@ -9,7 +9,6 @@ import Navbar from './components/layout/Navbar'
 import MainLayout from './_search/MainLayout'
 import Home from './_search/pages/Home'
 import Footer from './components/layout/Footer'
-import { NewsFeed } from './_search/pages/NewsFeed/NewsFeed'
 import { useState } from 'react'
 import { Navbar2 } from './components/layout/Navbar2'
 import { useEffect } from 'react'
@@ -21,6 +20,8 @@ import Donaciones from './_search/pages/Donaciones/Donaciones'
 import InvolveApp from './_search/pages/Involucrate/InvolveApp'
 import Search from './_search/pages/Search'
 import PetDetails from './components/pets/PetDetails'
+import { NewsFeed } from './_social/pages/NewsFeed/NewsFeed'
+import { PostDetails } from './_social/pages/NewsFeed/PostDetails'
 
 
 
@@ -56,6 +57,8 @@ function App() {
           <Route path='/donation' element={<Donaciones />} />
           <Route path='/porfile' element={<Porfile />} />
           <Route path='/news-feed' element={<NewsFeed />} />
+          <Route path="/post-detail/:id" element={<PostDetails />} />
+
         </Route>
         {/* Private Routes */}
         <Route element={<RootLayout />}>
