@@ -67,7 +67,7 @@ export const NewsFeed = () => {
   }
 
   const HandleSubmit = async (e) => {
-    e.preventDefault();
+    
     if (
       isValidDescription && isValidImage
     ) {
@@ -82,6 +82,7 @@ export const NewsFeed = () => {
       }
 
     } else {
+      e.preventDefault();
       setIsValidPost(false);
       console.log('Error en el formulario, verifica los datos');
     }
@@ -96,12 +97,12 @@ export const NewsFeed = () => {
 
         <div className="w-[80%] bg-secondary2-bg-color border-2 border-buttonColor rounded-2xl p-6 shadow-[0_2px_15px_-3px_rgba(0,0,0,0.07),0_10px_20px_-2px_rgba(0,0,0,0.04)]">
           <div className="w-[100%] flex flex-col items-center gap-5">
-            <h3 className="text-main-text-color font-['Open_Sans_Bold'] text-[2rem]">Que nos quieres compartir? </h3>
+            <h3 className="text-main-text-color font-['Open_Sans_Bold'] text-[2rem]">Hola {usuario.firstName} Que nos quieres compartir? </h3>
             <div className='w-[100%]'>
               <form onSubmit={HandleSubmit}>
                 <div className="flex justify-center my-1">
                   <MenuItem >
-                    <Avatar className='mx-2' alt='Daniel' src="src\assets\img\About-Us\DanielIñiguezz.jpeg" sx={{ width: 40, height: 40, bgcolor: colors.buttonColor }} />
+                    <Avatar className='mx-2' alt={usuario.firstName} src="src\assets\img\About-Us\DanielIñiguezz.jpeg" sx={{ width: 40, height: 40, bgcolor: colors.buttonColor }} />
                   </MenuItem>
                   <Textarea onChange={HandleTextChange} className='min-w-[50%]' aria-label="minimum height" minRows={3} placeholder="Que estas pensando...?" required value={postContent} />
                 </div>
