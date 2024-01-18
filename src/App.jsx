@@ -57,7 +57,7 @@ function App() {
           <Route path='/donation' element={<Donaciones />} />
           <Route path='/porfile' element={<Porfile />} />
           <Route path='/news-feed' element={<NewsFeed />} />
-          <Route path="/post-detail/:id" element={<PostDetails />} />
+          {/* <Route path="/post-detail/:id" element={<PostDetails />} /> */}
 
         </Route>
         {/* Private Routes */}

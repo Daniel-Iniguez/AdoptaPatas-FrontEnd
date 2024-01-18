@@ -13,27 +13,24 @@ import { useEffect } from 'react';
 import { RegisterPost } from './RegisterPost';
 import { useContext } from 'react';
 import { UserContext } from '../../../_auth/context/UserContext';
-import { set } from 'react-hook-form';
 
 
 
 export const NewsFeed = () => {
   const [posts, setPosts] = useState([])
 
+  // ========= Peticion Get usando api Axios =================
+  const getPosts = async () => {
+    try {
+      const response = await axios.get("http://localhost:8080/adoptapatas/v1/posts");
+      setPosts(response.data);
+      console.log("GET Axios", posts);
+    } catch (error) {
+      console.log('Error al obtener datos de publicaciones:', error);
+    }
+  };
   useEffect(() => {
-    // ========= Peticion Get usando api Axios =================
-    const getPosts = async () => {
-      try {
-        const response = await axios.get("http://localhost:8080/adoptapatas/v1/posts");
-        setPosts(response.data);
-        console.log("GET Axios", posts);
-      } catch (error) {
-        console.log('Error al obtener datos de publicaciones:', error);
-      }
-    };
     getPosts()
-
-
   }, [])
 
   const { usuario } = useContext(UserContext)
@@ -57,6 +54,7 @@ export const NewsFeed = () => {
 
   const HandleImage = (e) => {
     const img = e.target.value;
+    setPostImage(img);
     console.log(img);
     if (img == '') {
       setIsValidImage(false);
@@ -67,7 +65,7 @@ export const NewsFeed = () => {
   }
 
   const HandleSubmit = async (e) => {
-    
+
     if (
       isValidDescription && isValidImage
     ) {
@@ -77,6 +75,7 @@ export const NewsFeed = () => {
         setPostContent('');
         setPostImage('');
         console.log('publicado');
+        getPosts()
       } catch (error) {
         console.error('Error en la solicitud 1', error);
       }
@@ -99,24 +98,22 @@ export const NewsFeed = () => {
           <div className="w-[100%] flex flex-col items-center gap-5">
             <h3 className="text-main-text-color font-['Open_Sans_Bold'] text-[2rem]">Hola {usuario.firstName} Que nos quieres compartir? </h3>
             <div className='w-[100%]'>
-              <form onSubmit={HandleSubmit}>
-                <div className="flex justify-center my-1">
-                  <MenuItem >
-                    <Avatar className='mx-2' alt={usuario.firstName} src="src\assets\img\About-Us\DanielIñiguezz.jpeg" sx={{ width: 40, height: 40, bgcolor: colors.buttonColor }} />
-                  </MenuItem>
-                  <Textarea onChange={HandleTextChange} className='min-w-[50%]' aria-label="minimum height" minRows={3} placeholder="Que estas pensando...?" required value={postContent} />
-                </div>
-                <div className="mx-auto my-3 w-[40%]">
-                  <Button component="label" variant="Contained" startIcon={<ImageIcon />} style={{ color: colors.mainTextColor }} >
-                    {postImage != '' ? postImage : 'Subir Imagen'}
-                    <VisuallyHiddenInput type="file" onChange={HandleImage} value={postImage} />
-                  </Button>
+              <div className="flex justify-center my-1">
+                <MenuItem >
+                  <Avatar className='mx-2' alt={usuario.firstName} src="src\assets\img\About-Us\DanielIñiguezz.jpeg" sx={{ width: 40, height: 40, bgcolor: colors.buttonColor }} />
+                </MenuItem>
+                <Textarea onChange={HandleTextChange} className='min-w-[50%]' aria-label="minimum height" minRows={3} placeholder="Que estas pensando...?" required value={postContent} />
+              </div>
+              <div className="mx-auto my-3 w-[40%]">
+                <Button component="label" variant="Contained" startIcon={<ImageIcon />} style={{ color: colors.mainTextColor }} >
+                  {postImage != '' ? postImage : 'Subir Imagen'}
+                  <VisuallyHiddenInput type="file" onChange={HandleImage} value={postImage} />
+                </Button>
+                <Button variant="Contained" startIcon={<AddBoxIcon />} style={{ color: colors.mainTextColor, marginLeft: '3%' }} type='button' onClick={HandleSubmit}>
+                  Publicar
+                </Button>
+              </div>
 
-                  <Button variant="Contained" startIcon={<AddBoxIcon />} style={{ color: colors.mainTextColor, marginLeft: '3%' }} type='submit' >
-                    Publicar
-                  </Button>
-                </div>
-              </form>
             </div>
           </div>
         </div>
