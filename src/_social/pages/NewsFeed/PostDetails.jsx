@@ -40,7 +40,7 @@ export const PostDetails = () => {
         // ========= Peticion Get usando api Axios =================
         const getComment = async () => {
             try {
-                const response = await axios.get(`http://localhost:8080/adoptapatas/v1/comments?postId=${postId}`);
+                const response = await axios.get(`http://localhost:8080/adoptapatas/v1/comments/post/${postId}`);
                 setComments(response.data);
                 console.log("GET Comments", response.data);
             } catch (error) {

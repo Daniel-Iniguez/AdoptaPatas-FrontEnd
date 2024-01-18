@@ -40,8 +40,8 @@ function SignUpForm() {
   const [isValidPostalCode, setIsValidPostalCode] = useState(true); */
   const [place, setPlace] = useState('');
   const [isValidPlace, setIsValidPlace] = useState(true);
-  const [userType, setUserType] = useState();
-  const [isValidUserType, setIsValidUserType] = useState(true);
+  const [role, setRole] = useState();
+  const [isValidRole, setIsValidRole] = useState(true);
   const [isValidUser, setIsValidUser] = useState(false);
 
   //Validacion si ya existe un usuario y correo electronico
@@ -85,7 +85,7 @@ function SignUpForm() {
       //console.log(userNameValue);
       const response = await axios.get("http://localhost:8080/adoptapatas/v2/users");
       const users = response.data
-      console.log("%cRespuesta Existosa",'color: green; font-weight: bold;', users.data);
+      console.log(userNameValue);
       //const users = JSON.parse(localStorage.getItem('users')) || [];
       const existUser = users.find(u => (u.username === userNameValue));
       const regeName = /^[a-zA-Z0-9_-]+(?:\.[a-zA-Z0-9_-]+)*$/;
@@ -100,7 +100,7 @@ function SignUpForm() {
         }
       }
       setUserName(userNameValue);
-      console.log("handleUserNameChange called");
+      console.log("%cRespuesta Existosa",'color: green; font-weight: bold;',"handleUserNameChange called");
     } catch (error) {
       console.log(error);
     }
@@ -126,7 +126,7 @@ function SignUpForm() {
         }
       }
       setEmail(userEmail);
-      console.log("handleEmailChange called");
+      console.log("%cRespuesta Existosa",'color: green; font-weight: bold;',"handleEmailChange called");
     } catch (error) {
       console.log(error);
     }
@@ -198,19 +198,19 @@ function SignUpForm() {
       console.log("handlePlaceChange called");
     }
   };
-  const handleUserTypeChange = (e) => {
-    const userType = e.target.value;
-    console.log(userType);
-    if (userType == 'Individual') {
-      setIsValidUserType(true);
-      setUserType(1);
-      console.log("handleUserTypeChange called");
-    } else if (userType == 'Shelter') {
-      setIsValidUserType(true);
-      setUserType(2);
-      console.log("handleUserTypeChange called");
+  const handleRoleChange = (e) => {
+    const role = e.target.value;
+    console.log(role);
+    if (role == 'Individual') {
+      setIsValidRole(true);
+      setRole(1);
+      console.log("handleRole called");
+    } else if (role == 'Shelter') {
+      setIsValidRole(true);
+      setRole(2);
+      console.log("handleRole called");
     } else {
-      setIsValidUserType(false);
+      setIsValidRole(false);
     }
 
   };
@@ -229,12 +229,13 @@ function SignUpForm() {
       isValidAge &&
       isValidPhoneNumber &&
       isValidPlace &&
-      isValidUserType &&
+      isValidRole &&
       !existUser && !existEmail
     ) {
       try {
-        await RegisterPost(name, lastName, userName, email, password, age, phoneNumber, place, userType);
+        await RegisterPost(name, lastName, userName, email, password, age, phoneNumber, place, role);
         setIsValidUser(true);
+        alert("Registro exitoso");
         // Redirige al usuario a la página de inicio de sesión
         navigate('/sign-in');
       } catch (error) {
@@ -434,10 +435,10 @@ function SignUpForm() {
                         {...params}
                         label="Tipo de cuenta"
                         variant="standard"
-                        value={userType}
-                        error={!isValidUserType}
-                        onChange={handleUserTypeChange}
-                        helperText={isValidUserType ? '' : 'Selecciona que tipo de cuenta es'}
+                        value={role}
+                        error={!isValidRole}
+                        onChange={handleRoleChange}
+                        helperText={isValidRole ? '' : 'Selecciona que tipo de cuenta es'}
                       />
                     )}
                   />

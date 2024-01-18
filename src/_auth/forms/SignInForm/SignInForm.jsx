@@ -79,6 +79,7 @@ function SignInForm({ setIsLogin }) {
         //setIsLogin(true);
         setIsLogin(userName);
         setUsuario(user);
+        alert("Inicio de sesión exitoso");
       } else {
         if (isValidUserName) {
           setIsValidPassword(false);

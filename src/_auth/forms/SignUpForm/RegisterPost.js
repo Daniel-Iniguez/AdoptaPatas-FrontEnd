@@ -12,7 +12,7 @@ import axios from "axios";
  * @param {place} city
  * @param {postalCode} postalCode 
  */
-export const RegisterPost = async (name, lastName, userName, email, password, age, phoneNumber, place, userType) => {
+export const RegisterPost = async (name, lastName, userName, email, password, age, phoneNumber, place, role) => {
   // ========== Peticion POST usando api axios ================
   const url = "http://localhost:8080/adoptapatas/v2/users";
     try {
@@ -26,11 +26,11 @@ export const RegisterPost = async (name, lastName, userName, email, password, ag
         password: password,
         city: place,
         state: "México",
-        userType: {id:userType}
+        role: {id:role}
       }
 
       const response = await axios.post(url, user);
-      console.log("Respuesta Existosa: ", response.data);
+      console.log("%cRespuesta Existosa",'color: green; font-weight: bold;', response.data);
     } catch (error) {
       console.error('Error en la solicitud', error);
       throw error.response.data;
