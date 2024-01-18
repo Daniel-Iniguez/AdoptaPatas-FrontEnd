@@ -43,7 +43,7 @@ export default function AccountMenu({ setIsLogin }) {
     };
 
     const handlePorfile = () => {
-        navigate('/porfile');
+        navigate('/profile');
     };
 
     const handleLogOut = (e) => {
@@ -107,17 +107,17 @@ export default function AccountMenu({ setIsLogin }) {
                     <Avatar alt={usuario.name} src="src\assets\img\About-Us\DanielIñiguezz.jpeg" sx={{ width: 32, height: 32, bgcolor: colors.buttonColor }} />{usuario.firstName} {usuario.lastName}
                 </MenuItem>
                 <Divider />
-                <MenuItem onClick={handleClose}>
+                {/* <MenuItem onClick={handleClose}>
                     <ListItemIcon>
                         <Settings fontSize="small" />
                     </ListItemIcon>
                     Configuracion
-                </MenuItem>
+                </MenuItem> */}
                 <MenuItem onClick={handleLogOut}>
                     <ListItemIcon>
                         <Logout fontSize="small" />
                     </ListItemIcon>
-                    Cerrar la sesion de @{usuario.userName}
+                    Cerrar la sesion de @{usuario.username}
                 </MenuItem>
             </Menu>
         </React.Fragment>

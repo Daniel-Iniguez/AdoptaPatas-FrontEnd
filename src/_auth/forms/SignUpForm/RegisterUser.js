@@ -12,7 +12,7 @@ import axios from "axios";
  * @param {place} city
  * @param {postalCode} postalCode 
  */
-export const RegisterPost = async (name, lastName, userName, email, password, age, phoneNumber, place, role) => {
+export const RegisterUser = async (name, lastName, userName, email, password, age, phoneNumber, place, role) => {
   // ========== Peticion POST usando api axios ================
   const url = "http://localhost:8080/adoptapatas/v2/users";
     try {

@@ -16,8 +16,14 @@ export const UserProvider = ({ children }) => {
         localStorage.setItem('PostId', JSON.stringify(postId));
     }, [postId]);
 
+    const [userPostId, setUserPostId] = useState(JSON.parse(localStorage.getItem('UserPostId')) || '')
+    useEffect(() => {
+        // Guardar el valor actual en localStorage cuando la variable cambia
+        localStorage.setItem('UserPostId', JSON.stringify(userPostId));
+    }, [userPostId]);
+
     return (
-        <UserContext.Provider value={{ usuario, setUsuario, postId, setPostId }}>
+        <UserContext.Provider value={{ usuario, setUsuario, postId, setPostId, userPostId, setUserPostId }}>
             {children}
         </UserContext.Provider>
     )

@@ -8,12 +8,13 @@ import { UserContext } from '../../../_auth/context/UserContext';
 import { useContext } from 'react';
 import './PostDetails.css'
 import { PostDetails } from './PostDetails';
+import axios from 'axios';
 
 const style = {
     position: 'absolute',
-    top: '50%',
-    left: '50%',
-    transform: 'translate(-50%, -50%)',
+    top: '1%',
+    left: '20%',
+
     width: 400,
     pt: 2,
     px: 4,
@@ -21,38 +22,69 @@ const style = {
 
 };
 
+
+
 export const PostCard = ({ posts }) => {
-    //const navigate = useNavigate();
+
+
+
+    const navigate = useNavigate();
     const label = { inputProps: { 'aria-label': 'Checkbox demo' } };
     //const [postId, setPostId] = useState('');
 
-    const { setPostId } = useContext(UserContext);
-    const [open, setOpen] = React.useState(false);
+    const { setPostId, setUserPostId, usuario } = useContext(UserContext);
+    const [open, setOpen] = useState(false);
+
     const handlePostClick = (postId) => {
-        //navigate(`/post-detail/${postId}`);
         console.log(postId);
         setPostId(postId);
         setOpen(true);
+    };
+    const handleUserPostClick = (userPostId) => {
+        navigate(`/user-post/${userPostId}`);
+        console.log(userPostId);
+        setUserPostId(userPostId);
     };
 
     const handleClose = () => {
         setOpen(false);
     };
 
+    const handleDeletePost = async (postId) => {
+        const url = `http://localhost:8080/adoptapatas/v1/posts/${postId}`;
+        try {
+            const response = await axios.delete(url);
+            console.log("%Publicación Eliminada", 'color: green; font-weight: bold;', response.data);
+            alert("Publicación Eliminada!")
+        } catch (error) {
+            console.error('Error en la solicitud de eliminación', error);
+            throw error.response.data;
+        }
+    }
+
     return (
         <>
             {posts.slice().reverse().map((post) => (
                 <section key={post.id} className=' grid sm:grid-cols-1 lg:grid-cols-1  gap-2 mx-auto bg-main-bg-color max-w-[40%] rounded-3xl border-2 border-buttonColor my-2'>
-                    <div className='m-7' >
-                        <MenuItem >
-                            <Avatar className='mx-2' alt={post.user.firstName} src="src\assets\img\About-Us\DanielIñiguezz.jpeg" sx={{ width: 40, height: 40, bgcolor: colors.buttonColor }} /> <span className='title-username1'>{post.user.firstName} {post.user.lastName}</span>
-                        </MenuItem>
+                    <div className=' ' >
+                        <div className='grid sm:grid-cols-1 lg:grid-cols-12'>
+                            <div className='col-span-9'>
+                                <MenuItem onClick={() => handleUserPostClick(post.user.id)} >
+                                    <Avatar className='mx-2' alt={post.user.firstName} src="src\assets\img\About-Us\DanielIñiguezz.jpeg" sx={{ width: 40, height: 40, bgcolor: colors.buttonColor }} /> <span className='title-username1'>@{post.user.username}</span>
+                                </MenuItem>
+                            </div>
+                            <div className='my-auto flex justify-center col-span-3 '>
+                                
+                                {post.user.id == usuario.id ?
+                                    <Button className='title-like' variant="Contained" style={{ color: 'red', borderColor: 'red', width: '60%' }} onClick={() => handleDeletePost(post.id)}>
+                                        eliminar
+                                    </Button>
+                                    : ''}
+                            </div>
+                        </div>
                         <p className='my-3 mx-auto w-[90%] title-postContent'>{post.postContent}</p>
-                        <img className='max-h-[80%] w-[90%] object-cover mx-auto rounded-2xl' src='src/assets/img/contact/Carousel/OIG (2).jpeg' alt={post.postImage} />
+                        <img className='max-h-[70%] w-[90%] object-cover mx-auto rounded-2xl' src={post.postImage} alt={post.postImage} />
                     </div>
-                    <div>
-                    </div>
-
                     <div className='grid lg:grid-cols-2 sm:grid-cols-2 xs:grid-cols-2'>
                         <div className='mx-auto'>
                             <Checkbox {...label} icon={<FavoriteBorder />} checkedIcon={<Favorite />} /><span className='title-like'>Like</span>
@@ -68,7 +100,7 @@ export const PostCard = ({ posts }) => {
                                 aria-labelledby="parent-modal-title"
                                 aria-describedby="parent-modal-description"
                             >
-                                <Box sx={{ ...style, minWidth: '80%', maxHeight: '80%' }}>
+                                <Box sx={{ ...style, minWidth: '60%', maxHeight: '60%' }}>
                                     <PostDetails></PostDetails>
 
                                 </Box>

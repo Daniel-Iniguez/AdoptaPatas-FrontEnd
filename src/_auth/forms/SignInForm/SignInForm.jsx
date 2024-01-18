@@ -6,7 +6,7 @@ import VisibilityOff from '@mui/icons-material/VisibilityOff';
 import { useState } from 'react';
 import '../SignUpForm/SignUp.css'
 import { colors } from '../../../assets/MUI/Colors';
-import { TextFieldStyle } from '../TextFieldStyles';
+import { TextFieldStyle } from '../../../assets/MUI/TextFieldStyles';
 import { useContext } from 'react';
 import { UserContext } from '../../context/UserContext';
 import axios from 'axios';

@@ -103,7 +103,7 @@ export const PostDetails = () => {
     return renderizar ? <>
         <section className=' grid sm:grid-cols-1 lg:grid-cols-2  mx-auto bg-main-bg-color max-w-[100%] rounded-3xl border-2 border-buttonColor my-2'>
             <div className='m-7'>
-                <img className='max-h-[100%] w-[100%] object-cover mx-auto rounded-2xl' src='src/assets/img/contact/Carousel/OIG (2).jpeg' alt='hola' />
+                <img className='max-h-[100%] w-[100%] object-cover mx-auto rounded-2xl' src={post.postImage} alt='hola' />
             </div>
             <div className='border-l border-buttonColor  '>
                 <div className='mx-auto border-b border-buttonColor '>

@@ -6,8 +6,8 @@ import VisibilityOff from '@mui/icons-material/VisibilityOff';
 import { useState } from 'react';
 import '../SignUpForm/SignUp.css'
 import { colors } from '../../../assets/MUI/Colors';
-import { TextFieldStyle } from '../TextFieldStyles';
-import { RegisterPost } from './RegisterPost.js';
+import { TextFieldStyle } from '../../../assets/MUI/TextFieldStyles.js';
+import { RegisterUser } from './RegisterUser.js';
 import axios from 'axios';
 
 
@@ -233,7 +233,7 @@ function SignUpForm() {
       !existUser && !existEmail
     ) {
       try {
-        await RegisterPost(name, lastName, userName, email, password, age, phoneNumber, place, role);
+        await RegisterUser(name, lastName, userName, email, password, age, phoneNumber, place, role);
         setIsValidUser(true);
         alert("Registro exitoso");
         // Redirige al usuario a la página de inicio de sesión

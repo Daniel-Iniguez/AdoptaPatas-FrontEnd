@@ -14,8 +14,6 @@ import { RegisterPost } from './RegisterPost';
 import { useContext } from 'react';
 import { UserContext } from '../../../_auth/context/UserContext';
 
-
-
 export const NewsFeed = () => {
   const [posts, setPosts] = useState([])
 
@@ -104,12 +102,15 @@ export const NewsFeed = () => {
                 </MenuItem>
                 <Textarea onChange={HandleTextChange} className='min-w-[50%]' aria-label="minimum height" minRows={3} placeholder="Que estas pensando...?" required value={postContent} />
               </div>
-              <div className="mx-auto my-3 w-[40%]">
-                <Button component="label" variant="Contained" startIcon={<ImageIcon />} style={{ color: colors.mainTextColor }} >
-                  {postImage != '' ? postImage : 'Subir Imagen'}
-                  <VisuallyHiddenInput type="file" onChange={HandleImage} value={postImage} />
-                </Button>
-                <Button variant="Contained" startIcon={<AddBoxIcon />} style={{ color: colors.mainTextColor, marginLeft: '3%' }} type='button' onClick={HandleSubmit}>
+              <div className="flex justify-center my-auto">
+                <ImageIcon className='mx-8' />
+                <Textarea component="label" variant="Contained" onChange={HandleImage} value={postImage} startIcon={<ImageIcon />} minRows={1} placeholder="Ingresa el link de tu imagen:" required val style={{ color: colors.mainTextColor }} className='min-w-[50%]' >
+                  {/* {postImage != '' ? postImage : 'Subir Imagen'} */}
+                  {/* <VisuallyHiddenInput type="file" onChange={HandleImage} accept='image*' /> */}
+                </Textarea>
+              </div>
+              <div className='flex justify-center my-auto'>
+                <Button variant="Contained" startIcon={<AddBoxIcon />} style={{ color: colors.mainTextColor, marginLeft: '0%' }} type='button' onClick={HandleSubmit} className='mx-auto'>
                   Publicar
                 </Button>
               </div>

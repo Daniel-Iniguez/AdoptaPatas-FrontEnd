@@ -14,7 +14,6 @@ import { Navbar2 } from './components/layout/Navbar2'
 import { useEffect } from 'react'
 import { AboutUs } from './_search/pages/AboutUs/AboutUs'
 import { UserProvider } from './_auth/context/userProvider'
-import { Porfile } from './_search/pages/Porfile'
 import Contact from './_contact/Contact'
 import Donaciones from './_search/pages/Donaciones/Donaciones'
 import InvolveApp from './_search/pages/Involucrate/InvolveApp'
@@ -22,6 +21,8 @@ import Search from './_search/pages/Search'
 import PetDetails from './components/pets/PetDetails'
 import { NewsFeed } from './_social/pages/NewsFeed/NewsFeed'
 import { PostDetails } from './_social/pages/NewsFeed/PostDetails'
+import { Profile } from './_search/pages/Profile/Profile'
+import { Profiles } from './_search/pages/Profile/Porfiles'
 
 
 
@@ -45,7 +46,7 @@ function App() {
         <Route element={<MainLayout />}>
           <Route index element={<Home />} />
           <Route path='/search' element={<Search />} />
-          <Route path="/pet-detail/:id" element={<PetDetails />} />
+          <Route path="/user-post/:id" element={<Profiles />} />
           <Route path='/about-us' element={<AboutUs />} />
         </Route>
         {/* Public Routes */}
@@ -55,7 +56,7 @@ function App() {
           <Route path='/contact' element={<Contact />} />
           <Route path='/involucrate' element={<InvolveApp isLogin={isLogin} />} />
           <Route path='/donation' element={<Donaciones />} />
-          <Route path='/porfile' element={<Porfile />} />
+          <Route path='/profile' element={<Profile setIsLogin={setIsLogin} />} />
           <Route path='/news-feed' element={<NewsFeed />} />
           {/* <Route path="/post-detail/:id" element={<PostDetails />} /> */}
 

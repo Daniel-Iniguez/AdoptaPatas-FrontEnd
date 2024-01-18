@@ -2,7 +2,7 @@ import { TextareaAutosize as BaseTextareaAutosize } from '@mui/base/TextareaAuto
 import { styled } from '@mui/material/styles';
 
 
-  const blue = {
+  const pink = {
     50: '#FCE4EC',
     100: '#F8BBD0',
     200: '#F48FB1',
@@ -16,7 +16,7 @@ import { styled } from '@mui/material/styles';
 
   };
 
-  const grey = {
+  const blue = {
     100: '#DAECFF',
     200: '#b6daff',
     400: '#3399FF',
@@ -34,18 +34,18 @@ import { styled } from '@mui/material/styles';
     line-height: 1.5;
     padding: 8px 12px;
     border-radius: 8px;
-    color: ${theme.palette.mode === 'dark' ? grey[300] : grey[900]};
-    background: ${theme.palette.mode === 'dark' ? grey[900] : '#fff'};
-    border: 1px solid ${theme.palette.mode === 'dark' ? grey[700] : grey[200]};
-    box-shadow: 0px 2px 2px ${theme.palette.mode === 'dark' ? grey[900] : grey[50]};
+    color: ${theme.palette.mode === 'dark' ? pink[300] : pink[900]};
+    background: ${theme.palette.mode === 'dark' ? pink[900] : '#fff'};
+    border: 1px solid ${theme.palette.mode === 'dark' ? pink[700] : pink[200]};
+    box-shadow: 0px 2px 2px ${theme.palette.mode === 'dark' ? pink[900] : pink[50]};
 
     &:hover {
-      border-color: ${blue[400]};
+      border-color: ${pink[400]};
     }
 
     &:focus {
-      border-color: ${blue[400]};
-      box-shadow: 0 0 0 3px ${theme.palette.mode === 'dark' ? blue[600] : blue[200]};
+      border-color: ${pink[400]};
+      box-shadow: 0 0 0 3px ${theme.palette.mode === 'dark' ? pink[600] : pink[200]};
     }
 
     // firefox
