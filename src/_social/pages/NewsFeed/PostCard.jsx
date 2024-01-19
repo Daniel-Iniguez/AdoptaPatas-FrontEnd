@@ -26,8 +26,6 @@ const style = {
 
 export const PostCard = ({ posts }) => {
 
-
-
     const navigate = useNavigate();
     const label = { inputProps: { 'aria-label': 'Checkbox demo' } };
     //const [postId, setPostId] = useState('');
