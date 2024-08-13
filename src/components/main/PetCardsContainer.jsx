@@ -1,8 +1,8 @@
 // CardContainer.js
 
 import React from 'react';
-import HomePetCard from './HomePetCard'; // Import the Card component
-import './cardcontainer.css'; // Import your CSS styles
+import HomePetCard from './HomePetCard';
+import './cardcontainer.css';
 
 function PetCardsContainer() {
   const pets = [
@@ -51,7 +51,7 @@ function PetCardsContainer() {
       title: 'Max',
       description: 'Su felicidad se refleja en su cola, el miembro mas peludo de la familia, lleno de cariño para dar.',
     },
-    // Add similar objects for other cards
+
   ];
 
   return (

@@ -80,7 +80,7 @@ const SearchBarHome = () => {
 
 
   return (
-    <section className="w-[100%] h-[550px] flex flex-col items-center justify-around py-16">
+    <section className="w-[100%]  flex flex-col items-center justify-around py-16">
       <h3 className='p-10 font-["Nunito_Black"] text-[3rem] text-main-text-color text-center'>
         Encuentra a tu próximo mejor amigo
       </h3>

@@ -6,10 +6,11 @@ import VisibilityOff from '@mui/icons-material/VisibilityOff';
 import { useState } from 'react';
 import '../SignUpForm/SignUp.css'
 import { colors } from '../../../assets/MUI/Colors';
-import { TextFieldStyle } from '../../../assets/MUI/TextFieldStyles';
+import { TextFieldStyle } from '../TextFieldStyles';
 import { useContext } from 'react';
 import { UserContext } from '../../context/UserContext';
 import axios from 'axios';
+import petimage from '../../../assets/img/contact/Carousel/imgContact(4).jpeg'
 
 
 function SignInForm({ setIsLogin }) {
@@ -33,7 +34,7 @@ function SignInForm({ setIsLogin }) {
     try {
       const userNameValue = e.target.value;
       console.log(userNameValue);
-      const response = await axios.get("http://localhost:8080/adoptapatas/v2/users");
+      const response = await axios.get("https://adoptapatas.onrender.com/adoptapatas/v2/users");
       const users = response.data;
       //const usersData = JSON.parse(localStorage.getItem('users')) || [];
       const user = users.find(u => (u.username === userNameValue || u.email === userNameValue));
@@ -67,7 +68,7 @@ function SignInForm({ setIsLogin }) {
       e.preventDefault();
       // Validar los datos aquí (comparar con datos en local storage)
       //const usersData = JSON.parse(localStorage.getItem('users')) || [];
-      const response = await axios.get("http://localhost:8080/adoptapatas/v1/users");
+      const response = await axios.get("https://adoptapatas.onrender.com/adoptapatas/v1/users");
       const users = response.data;
       const user = users.find(u => (u.username === userName || u.email === email) && u.password === password);
       if (user) {
@@ -198,7 +199,7 @@ function SignInForm({ setIsLogin }) {
         {/* Carrusel Perritos*/}
         <div className="hidden lg:block col-span-2 my-auto">
           <img
-            src="src\assets\img\contact\Carousel\imgContact(4).jpeg"
+            src={petimage}
             className="mx-auto max-w-[60%] rounded-[100%]"
             alt="..."
           />

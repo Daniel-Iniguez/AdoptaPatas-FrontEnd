@@ -1,5 +1,8 @@
 import React from 'react'
 import LogoFondo from "../../../assets/img/logos/logo_v3.png"
+import pet from "../../../assets/img/header/AboutUs3.png"
+import vector1 from '../../../assets/img/vectors/SVG/Vector1.svg'
+import vector2 from '../../../assets/img/vectors/SVG/Vector2.svg'
 import './Donaciones.css'
 
 function Donaciones() {
@@ -13,10 +16,10 @@ function Donaciones() {
 
                     <section className=" grid grid-cols-1 sm:grid-cols-1 md:grid-cols-1 lg:grid-cols-1 xl:grid-cols-1  ">
                         <div className=' col-span-1 hidden md:block'>
-                            <img src="src\assets\img\header\AboutUs3.png" alt="" className="max-w-[20%] min-h-[100%] mx-auto object-cover  relative z-10 hover:bottom-3 " />
+                            <img src={pet} alt="" className="max-w-[20%] min-h-[100%] mx-auto object-cover  relative z-10 hover:bottom-3 " />
                         </div>
-                        <img src="src\assets\img\vectors\SVG\Vector2.svg" alt="" className="max-w-[36%] top-[15%] left-[55%] absolute z-0 hidden lg:block hover:min-w-[40%] hover:top-[10%]" />
-                        <img src="src\assets\img\vectors\SVG\Vector1.svg" alt="" className="max-w-[32%]  top-[20%] left-[5%] absolute z-0 hidden lg:block hover:max-w-[35%]" />
+                        <img src={vector2} alt="" className="max-w-[36%] top-[15%] left-[55%] absolute z-0 hidden lg:block hover:min-w-[40%] hover:top-[10%]" />
+                        <img src={vector1} alt="" className="max-w-[32%]  top-[20%] left-[5%] absolute z-0 hidden lg:block hover:max-w-[35%]" />
 
                     </section>
                 </section>

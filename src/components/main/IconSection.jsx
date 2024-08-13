@@ -11,7 +11,7 @@ function IconSection() {
     <section className='w-[100%] flex flex-col items-center justify-between py-24 gap-20 bg-first-section-color'>
       <h3 className='font-["Nunito_Black"] text-[3rem] text-main-text-color text-center mx-[20%]'>No sabes si estas listo para adoptar?</h3>
 
-      <div className="container h-[70vh] flex flex-row justify-around ">
+      <div className="container h-auto md:h-[70vh] flex sm:flex-row sm:gap-0 gap-10 flex-col justify-center items-center sm:justify-around ">
         <div className=" w-[22rem] items-center flex flex-col justify-center gap-5 ">
           <PetAdoptIcon />
           <h5

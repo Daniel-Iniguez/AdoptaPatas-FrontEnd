@@ -57,7 +57,7 @@
 }
 
 ::selection {
-    background-color: var(--secondary-bg-clr);
+    background-color: #F2D0D2;
 }
 
 * {

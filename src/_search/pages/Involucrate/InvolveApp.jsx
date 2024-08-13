@@ -1,6 +1,11 @@
 import "./InvolveApp.css";
 import ButtonApp from "../../../_contact/components/ButtonApp";
 import { useNavigate } from 'react-router-dom'
+import logo from '../../../_search/pages/Involucrate/Components/logo_v1.png'
+import vector1 from '../../../assets/img/vectors/SVG/Vector1.svg'
+import vector2 from '../../../assets/img/vectors/SVG/Vector2.svg'
+import petimage from '../../../assets/img/header/AboutUs2.png'
+
 
 const InvolveApp = ({isLogin}) => {
 
@@ -18,16 +23,16 @@ const InvolveApp = ({isLogin}) => {
     return (
         <main className="">
             <section className="bg-main-bg-color text-center max-h-[60vh] overflow-hidden">
-                <h2 className="titulo-inv text-[6rem] text-main-text-color mt-20 relative z-10 mb-5">
+                <h2 className="titulo-inv text-[6rem] text-main-text-color mt-20 relative z-10 mb-5 hover:text-[7rem]">
                     Involucrate y Adopta Una Mascota
                 </h2>
 
                 <section className=" grid grid-cols-1 sm:grid-cols-1 md:grid-cols-1 lg:grid-cols-1 xl:grid-cols-1  ">
                     <div className=' col-span-1 hidden md:block'>
-                        <img src="src\assets\img\header\AboutUs2.png" alt="" className="max-w-[21%] min-h-[100%] mx-auto object-cover  relative z-10 hover:bottom-3 " />
+                        <img src={petimage} alt="" className="max-w-[21%] min-h-[100%] mx-auto object-cover  relative z-10 hover:bottom-3 " />
                     </div>
-                    <img src="src\assets\img\vectors\SVG\Vector1.svg" alt="" className="max-w-[36%] top-[15%] left-[55%] absolute z-0 hidden lg:block hover:min-w-[40%] hover:top-[10%]" />
-                    <img src="src\assets\img\vectors\SVG\Vector2.svg" alt="" className="max-w-[32%]  top-[20%] left-[5%] absolute z-0 hidden lg:block hover:max-w-[35%]" />
+                    <img src={vector1}alt="" className="max-w-[36%] top-[15%] left-[55%] absolute z-0 hidden lg:block hover:min-w-[40%] hover:top-[10%]" />
+                    <img src={vector2} alt="" className="max-w-[32%]  top-[20%] left-[5%] absolute z-0 hidden lg:block hover:max-w-[35%]" />
 
                 </section>
             </section>
@@ -43,7 +48,7 @@ const InvolveApp = ({isLogin}) => {
                     <p className="my-5">Si ya te has registrado de manera satisfactoria, podrás dirigirte al panel de "Adoptar" en este lugar podrás encontrar a usuarios y organizaciones que están en la disposición de dar en adopción AdoptaPatas te mostrará los elementos que estén más cerca de tu ubicación.'</p>
                 </div>
                 <div className="desc-inv col-span-1 ml-5 me-5 mx-auto my-auto">
-                    <img src="src\_search\pages\Involucrate\Components\logo_v1.png" alt="" className="mx-auto" />
+                    <img src={logo} alt="" className="mx-auto" />
                 </div>
 
             </div>

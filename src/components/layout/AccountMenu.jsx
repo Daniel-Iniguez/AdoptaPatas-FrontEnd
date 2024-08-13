@@ -64,7 +64,7 @@ export default function AccountMenu({ setIsLogin }) {
                         aria-haspopup="true"
                         aria-expanded={open ? 'true' : undefined}
                     >
-                        <Avatar alt={usuario.firstName} src="src\assets\img\About-Us\DanielIñiguezz.jpeg" sx={{ width: 32, height: 32, bgcolor: colors.buttonColor }}></Avatar>
+                        <Avatar alt={usuario.name} src="src\assets\img\About-Us\DanielIñiguezz.jpeg" sx={{ width: 32, height: 32, bgcolor: colors.buttonColor }}></Avatar>
                     </IconButton>
                 </Tooltip>
             </Box>
@@ -107,17 +107,17 @@ export default function AccountMenu({ setIsLogin }) {
                     <Avatar alt={usuario.name} src="src\assets\img\About-Us\DanielIñiguezz.jpeg" sx={{ width: 32, height: 32, bgcolor: colors.buttonColor }} />{usuario.firstName} {usuario.lastName}
                 </MenuItem>
                 <Divider />
-                {/* <MenuItem onClick={handleClose}>
+                <MenuItem onClick={handleClose}>
                     <ListItemIcon>
                         <Settings fontSize="small" />
                     </ListItemIcon>
                     Configuracion
-                </MenuItem> */}
+                </MenuItem>
                 <MenuItem onClick={handleLogOut}>
                     <ListItemIcon>
                         <Logout fontSize="small" />
                     </ListItemIcon>
-                    Cerrar la sesion de @{usuario.username}
+                    Cerrar la sesion de @{usuario.userName}
                 </MenuItem>
             </Menu>
         </React.Fragment>

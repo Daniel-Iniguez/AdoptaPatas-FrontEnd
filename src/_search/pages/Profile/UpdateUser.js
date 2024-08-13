@@ -17,7 +17,7 @@ import { UserContext } from "../../../_auth/context/UserContext";
 export const UpdateUser = async (id,name, lastName, userName, email, age, phoneNumber, userBio) => {
 
   // ========== Peticion POST usando api axios ================
-  const url = `http://localhost:8080/adoptapatas/v2/users/${id}`;
+  const url = `https://adoptapatas.onrender.com/adoptapatas/v2/users/${id}`;
     try {
       const user = {
         firstName: name,
