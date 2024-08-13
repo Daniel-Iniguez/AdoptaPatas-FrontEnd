@@ -7,7 +7,7 @@ const ButtonApp = props => {
       <button
         id={props.id}
         type={props.type}
-        className="hover:text-white cursor-pointer mx-auto text-center py-1 px-2 mb-1 text-[1.3rem] flex justify-center align-middle w-full"
+        className="hover:text-white cursor-pointer mx-auto text-center py-1 px-2 text-[1.3rem] flex justify-center align-middle w-full"
         onClick={props.onClick}
       >
         {props.title}

@@ -1,11 +1,12 @@
 import React from 'react'
 import { useState } from 'react';
 import { colors } from '../../../assets/MUI/Colors';
-import { TextFieldStyle } from '../../../assets/MUI/TextFieldStyles.js';
+
 import { UpdateUser } from './UpdateUser.js';
 import axios from 'axios';
 import { useContext } from 'react';
 import { UserContext } from '../../../_auth/context/UserContext.jsx';
+import { TextFieldStyle } from '../../../_auth/forms/TextFieldStyles.js';
 
 
 function UpdatePorfile() {
@@ -96,7 +97,7 @@ function UpdatePorfile() {
         try {
             const userNameValue = e.target.value;
             //console.log(userNameValue);
-            const response = await axios.get("http://localhost:8080/adoptapatas/v2/users");
+            const response = await axios.get("https://adoptapatas.onrender.com/adoptapatas/v2/users");
             const users = response.data
             console.log(userNameValue);
             //const users = JSON.parse(localStorage.getItem('users')) || [];
@@ -118,7 +119,7 @@ function UpdatePorfile() {
         try {
             const userEmail = e.target.value;
             //console.log(userEmail);
-            const response = await axios.get("http://localhost:8080/adoptapatas/v2/users");
+            const response = await axios.get("https://adoptapatas.onrender.com/adoptapatas/v2/users");
             const users = response.data
             console.log("GET Axios", users.data);
             //const users = JSON.parse(localStorage.getItem('users')) || [];

@@ -1,6 +1,6 @@
 import React from 'react'
 
-function Paw({ fillColor, position, rotate, height, width }) {
+function Paw({ fillColor, position, rotate, height, width, size }) {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
@@ -8,7 +8,7 @@ function Paw({ fillColor, position, rotate, height, width }) {
       height={height}
       fill={fillColor}
       viewBox="0 0 393 381"
-      className={`${position} ${rotate}`}
+      className={`${position} ${rotate} ${size} `}
     >
       <path
         fill="#F8EDED"

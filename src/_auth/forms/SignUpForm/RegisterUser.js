@@ -12,9 +12,9 @@ import axios from "axios";
  * @param {place} city
  * @param {postalCode} postalCode 
  */
-export const RegisterUser = async (name, lastName, userName, email, password, age, phoneNumber, place, role) => {
+export const RegisterUser = async (name, lastName, userName, email, password, age, phoneNumber, place, state, role) => {
   // ========== Peticion POST usando api axios ================
-  const url = "http://localhost:8080/adoptapatas/v2/users";
+  const url = "https://adoptapatas.onrender.com/adoptapatas/v2/users";
     try {
       const user = {
         firstName: name,
@@ -25,7 +25,7 @@ export const RegisterUser = async (name, lastName, userName, email, password, ag
         phone: phoneNumber,
         password: password,
         city: place,
-        state: "México",
+        state: state,
         role: {id:role}
       }
 

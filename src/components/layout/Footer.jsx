@@ -38,7 +38,7 @@ function Footer() {
             <ul className="w-[35%] md:w-[30%] flex flex-row justify-between">
               <li>
                 <Link
-                 to=''
+                  to=''
                   className="text-[24px] md:text-[28px] text-white hover:text-hover-pink transition"
                 >
                   <FaFacebook />
@@ -46,7 +46,7 @@ function Footer() {
               </li>
               <li>
                 <Link
-                 to=''
+                  to=''
                   className="text-[24px] md:text-[28px] text-white hover:text-hover-pink transition"
                 >
                   <FaInstagram />
@@ -54,7 +54,7 @@ function Footer() {
               </li>
               <li>
                 <Link
-                 to=''
+                  to=''
                   className="text-[24px] md:text-[28px] text-white hover:text-hover-pink transition"
                 >
                   <FaTwitter />

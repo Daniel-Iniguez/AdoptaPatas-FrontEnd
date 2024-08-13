@@ -6,7 +6,7 @@ function ClipPathImg({ image, width, height }) {
     <div className='flex-[1_0_50%] w-[100%] h-[800px] relative overflow-hidden '>
 
       <svg
-        className='absolute right-[-100%] top-0 w-[200%] h-[100%]'
+        className=' md:absolute right-[-100%] top-0 w-[200%] h-[100%]'
         xmlns="http://www.w3.org/2000/svg"
         fill="none"
         viewBox="0 0 1429 724"

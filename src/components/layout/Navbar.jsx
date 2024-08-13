@@ -62,16 +62,16 @@ function Navbar() {
                 <li className='hover:text-black transition duration-200 ease-in-out cursor-pointer bg-main-text-color px-7 py-[0.5rem] text-white rounded-3xl hover:bg-white' >Regístrate</li>
               </Link>
             </ul>
-          </div>
-        </div>
+          </div >
+        </div >
         <div>
           {click && content}
         </div>
         <button className='block md:hidden transition' onClick={handleClick}>
           {click ? <FaTimes /> : <IoMenu size={'2rem'} />}
         </button>
-      </div>
-    </nav>
+      </div >
+    </nav >
   )
 }
 

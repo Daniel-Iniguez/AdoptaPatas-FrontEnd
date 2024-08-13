@@ -1,16 +1,15 @@
 import axios from "axios";
 
-export const CommentPost = async (commentContent, user, post) => {
+export const RegisterPost = async (user, postContent, postImage) => {
   // ========== Peticion POST usando api axios ================
-  const url = "http://localhost:8080/adoptapatas/v1/comments";
+  const url = "https://adoptapatas.onrender.com/adoptapatas/v1/posts";
     try {
-      const commentPost = {
-        commentContent: commentContent,
+      const posts = {
         user: {id:user},
-        post: {id:post},
+        postContent: postContent,
+        postImage: postImage,
       }
-
-      const response = await axios.post(url, commentPost);
+      const response = await axios.post(url, posts);
       console.log("%cRespuesta Existosa",'color: green; font-weight: bold;', response.data);
     } catch (error) {
       console.error('Error en la solicitud 2', error);

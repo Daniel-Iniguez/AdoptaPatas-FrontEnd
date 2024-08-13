@@ -1,6 +1,13 @@
 import React, { useRef, useState } from 'react';
 // Import Swiper React components
 import { Swiper, SwiperSlide } from 'swiper/react';
+import jannet from '../../../assets/img/About-Us/JanettVargas.png'
+import izco from '../../../assets/img/About-Us/IzcoGuerrero.jpeg'
+import daniel from '../../../assets/img/About-Us/DanielIñiguez.jpeg'
+import monse from '../../../assets/img/About-Us/MonserratSilva.jpeg'
+import rogelio from '../../../assets/img/About-Us/RogelioLopez.jpg'
+import geo from '../../../assets/img/About-Us/GeoFlores.png'
+
 
 
 // Import Swiper styles
@@ -33,7 +40,7 @@ export const AboutUs_Carousel = () => {
                 className="mySwiper"
             >
                 <SwiperSlide className='bg-secondary2-bg-color text-center'>
-                    <img src="src\assets\img\About-Us\IzcoGuerrero.JPG" alt="" className='opacity-100 w-[80%] h-[60%] object-cover rounded-[20%] relative mx-auto mb-2 ' />
+                    <img src={izco} alt="" className='opacity-100 w-[80%] h-[60%] object-cover rounded-[20%] relative mx-auto mb-2 ' />
                     <span className="slider_code text-[#7b7992] ">Front-End y Back-End</span>
                     <div className="slider_title text-[24px] text-black my-1">Izcoatl Guerrero Leon</div>
                     <div className="slider_text text-[#4e4a67]">
@@ -44,7 +51,7 @@ export const AboutUs_Carousel = () => {
                     </div>
                 </SwiperSlide>
                 <SwiperSlide className='bg-secondary2-bg-color text-center'>
-                    <img src="src\assets\img\About-Us\JanettVargas.png" alt="" className='opacity-100 w-[80%] h-[60%] object-cover rounded-[20%] relative mx-auto mb-2 ' />
+                    <img src={jannet} alt="" className='opacity-100 w-[80%] h-[60%] object-cover rounded-[20%] relative mx-auto mb-2 ' />
                     <span className="slider_code text-[#7b7992] ">Back-End</span>
                     <div className="slider_title text-[24px] text-black my-1">Janett Venegas</div>
                     <div className="slider_text text-[#4e4a67]">
@@ -54,7 +61,7 @@ export const AboutUs_Carousel = () => {
                     </div>
                 </SwiperSlide>
                 <SwiperSlide className='bg-secondary2-bg-color text-center'>
-                    <img src="src\assets\img\About-Us\GeoFlores.png" alt="" className='opacity-100 w-[80%] h-[60%] object-cover rounded-[20%] relative mx-auto mb-2 ' />
+                    <img src={geo} alt="" className='opacity-100 w-[80%] h-[60%] object-cover rounded-[20%] relative mx-auto mb-2 ' />
                     <span className="slider_code text-[#7b7992] ">Back-End</span>
                     <div className="slider_title text-[24px] text-black my-1">Geo Flores</div>
                     <div className="slider_text text-[#4e4a67]">
@@ -64,7 +71,7 @@ export const AboutUs_Carousel = () => {
                     </div>
                 </SwiperSlide>
                 <SwiperSlide className='bg-secondary2-bg-color text-center'>
-                    <img src="src\assets\img\About-Us\DanielIñiguez.jpeg" alt="" className='opacity-100 w-[80%] h-[60%] object-cover rounded-[20%] relative mx-auto mb-2 ' />
+                    <img src={daniel} alt="" className='opacity-100 w-[80%] h-[60%] object-cover rounded-[20%] relative mx-auto mb-2 ' />
                     <span className="slider_code text-[#7b7992] ">Front-End y Back-End</span>
                     <div className="slider_title text-[24px] text-black my-1">Daniel Iñiguez</div>
                     <div className="slider_text text-[#4e4a67]">
@@ -75,7 +82,7 @@ export const AboutUs_Carousel = () => {
                     </div>
                 </SwiperSlide>
                 <SwiperSlide className='bg-secondary2-bg-color text-center'>
-                    <img src="src\assets\img\About-Us\MonserratSilva.jpeg" alt="" className='opacity-100 w-[80%] h-[60%] object-cover rounded-[20%] relative mx-auto mb-2 ' />
+                    <img src={monse} alt="" className='opacity-100 w-[80%] h-[60%] object-cover rounded-[20%] relative mx-auto mb-2 ' />
                     <span className="slider_code text-[#7b7992] ">Front-End</span>
                     <div className="slider_title text-[24px] text-black my-1">Monserrat Silva</div>
                     <div className="slider_text text-[#4e4a67]">
@@ -87,7 +94,7 @@ export const AboutUs_Carousel = () => {
                     </div>
                 </SwiperSlide>
                 <SwiperSlide className='bg-secondary2-bg-color text-center'>
-                    <img src="src\assets\img\About-Us\RogelioLopez.jpg" alt="" className='opacity-100 w-[80%] h-[60%] object-cover rounded-[20%] relative mx-auto mb-2 ' />
+                    <img src={rogelio} alt="" className='opacity-100 w-[80%] h-[60%] object-cover rounded-[20%] relative mx-auto mb-2 ' />
                     <span className="slider_code text-[#7b7992] ">Front-End</span>
                     <div className="slider_title text-[24px] text-black my-1">Rogelio Lopez</div>
                     <div className="slider_text text-[#4e4a67]">

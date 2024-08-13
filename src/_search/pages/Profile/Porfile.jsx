@@ -1,16 +1,16 @@
-import { useContext } from "react"
-import { UserContext } from "../../../_auth/context/UserContext"
 import { Avatar, Box, Button, Modal } from "@mui/material"
-import { colors } from '../../../assets/MUI/Colors';
 import PlaceIcon from '@mui/icons-material/Place';
 import CalendarMonthIcon from '@mui/icons-material/CalendarMonth';
 import PhoneIcon from '@mui/icons-material/Phone';
 import EmailIcon from '@mui/icons-material/Email';
 import CommentIcon from '@mui/icons-material/Comment';
 import { useState } from "react";
-import UpdatePorfile from "./UpdateProfile";
+import UpdatePorfile from "./UpdateProfile.jsx";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
+import { useContext } from "react";
+import { UserContext } from "../../../_auth/context/UserContext";
+import { colors } from "../../../assets/MUI/Colors";
 
 const style = {
     position: 'absolute',
@@ -38,7 +38,7 @@ export const Profile = ({ setIsLogin }) => {
     };
 
     const handleDeleteAccount = async () => {
-        const url = `http://localhost:8080/adoptapatas/v2/users/${usuario.id}`;
+        const url = `https://adoptapatas.onrender.com/adoptapatas/v2/users/${usuario.id}`;
         try {
 
             const response = await axios.delete(url);

@@ -7,9 +7,9 @@ function AuthLayout() {
   return (
     <>
       {/* <div>AuthLayout</div> */}
-      <Outlet></Outlet>
+      <Outlet />
     </>
-    
+
   )
 }
 

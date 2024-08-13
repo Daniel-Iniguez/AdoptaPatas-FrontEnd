@@ -21,7 +21,7 @@ function UserCardContainer() {
   ];
 
   return (
-    <div className="container w-[100%] flex flex-row justify-between px-14">
+    <div className="container w-[100%] flex lg:flex-row lg:gap-0 gap-5 flex-col justify-between px-14">
       {homePageUsers.map(function (data, index) {
         return (
           <HomeUserCard

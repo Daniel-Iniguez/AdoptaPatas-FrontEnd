@@ -1,5 +1,10 @@
 import './about-us.css'
 import { AboutUs_Carousel } from './AboutUs_Carousel';
+import vector1 from '../../../assets/img/vectors/SVG/Vector1.svg'
+import vector2 from '../../../assets/img/vectors/SVG/Vector2.svg'
+import petimage1 from '../../../assets/img/header/AboutUs1.png'
+import petimage2 from '../../../assets/img/header/AboutUs2.png'
+import petimage3 from '../../../assets/img/header/AboutUs3.png'
 
 
 
@@ -17,16 +22,16 @@ export const AboutUs = () => {
                     <section className=" grid grid-cols-1 sm:grid-cols-1 md:grid-cols-1 lg:grid-cols-3 xl:grid-cols-3  ">
 
                         <div className='hidden lg:block'>
-                            <img src="src\assets\img\header\AboutUs2.png" alt="" className="max-w-[55%] min-h-[100%] object-cover right-[-40%]  relative z-10 hover:bottom-3 " />
+                            <img src={petimage2} alt="" className="max-w-[55%] min-h-[100%] object-cover right-[-40%]  relative z-10 hover:bottom-3 " />
                         </div>
                         <div className='mx-auto'>
-                            <img src="src\assets\img\header\AboutUs1.png" alt="" className="max-w-[90%] min-h-[100%] object-cover mx-auto relative z-20 hover:bottom-3" />
+                            <img src={petimage1} alt="" className="max-w-[90%] min-h-[100%] object-cover mx-auto relative z-20 hover:bottom-3" />
                         </div>
                         <div className='hidden lg:block'>
-                            <img src="src\assets\img\header\AboutUs3.png" alt="" className="max-w-[75%] min-h-[100%] object-cover left-[-1%] relative z-10 hover:bottom-3" />
+                            <img src={petimage3} alt="" className="max-w-[75%] min-h-[100%] object-cover left-[-1%] relative z-10 hover:bottom-3" />
                         </div>
-                        <img src="src\assets\img\vectors\SVG\Vector2.svg" alt="" className="max-w-[32%]  top-[20%] left-[1%] absolute z-0 hidden md:block hover:max-w-[35%]" />
-                        <img src="src\assets\img\vectors\SVG\Vector1.svg" alt="" className="min-w-[30%] top-[15%] left-[58%] absolute z-0 hidden lg:block hover:min-w-[45%] hover:top-[10%]" />
+                        <img src={vector2} alt="" className="max-w-[32%]  top-[20%] left-[1%] absolute z-0 hidden md:block hover:max-w-[35%]" />
+                        <img src={vector1} alt="" className="min-w-[30%] top-[15%] left-[58%] absolute z-0 hidden lg:block hover:min-w-[45%] hover:top-[10%]" />
                     </section>
                 </section>
 
