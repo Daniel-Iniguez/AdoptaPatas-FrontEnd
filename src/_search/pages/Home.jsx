@@ -11,7 +11,7 @@ import SearchBarHome from '../../components/main/SearchBarHome'
 
 function Home() {
   return (
-    <main className='pb-11 w-[100%] flex flex-col items-center justify-center'>
+    <main className='pb-11 w-[100%] flex flex-col items-center justify-center overflow-x-hidden'>
       <HeroSection />
 
       <SearchBarHome />

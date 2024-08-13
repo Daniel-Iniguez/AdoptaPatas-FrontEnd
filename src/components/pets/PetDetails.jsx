@@ -1,6 +1,9 @@
 import React from 'react';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import LocationIcon from '../icons/LocationIcon';
+import PetImageSlider from './PetImageSlider';
+import { sliderData } from '../../constants/sliderData';
+import ButtonPrimary from '../shared/ButtonPrimary';
 
 const PetDetails = () => {
   const navigate = useNavigate();
@@ -30,80 +33,84 @@ const PetDetails = () => {
     weight,
     sex,
     type,
+    image,
     location,
-    image
+
   } = pet;
 
 
   return (
 
-    <section className="py-36 flex flex-col justify-center items-center self-center">
-      <div className="w-[auto] px-4 mx-auto">
-        <div className="relative flex flex-col min-w-0 break-words bg-secondary-bg-color w-[45rem] mb-6 shadow-xl rounded-lg mt-16">
+    <section className="pt-20 pb-28 w-full items-center justify-center flex flex-col ">
 
-          <img src={image} className="shadow-xl rounded-full h-[250px] object-cover border-none absolute left-[31%] top-[-17%]  max-w-[250px]" />
+      <div className='w-full px-5 md:px-[15%] flex flex-col items-start gap-5 '>
+        <button className="underline text-[1rem] text-main-text-color font-['Open_Sans_Semi']" onClick={() => navigate(`/search?type=${type}&location=${locationData}&breed=${breedData}`)}>Volver a mi búsqueda</button>
+        <h3 className="text-[2.6rem] md:text-[3.5rem] font-['Open_Sans_Bold'] text-main-text-color mb-8" >
+          Hola! Me llamo <span className='font-["Open_Sans_Bold"]'>{name}!</span></h3>
+      </div>
 
-          <div className="px-6 flex flex-col justify-center items-center">
-            <div className="flex flex-wrap justify-center">
-              <div className="w-full px-4 flex justify-center">
+      <div className=' w-full px-10 md:px-0 md:items-start justify-center flex md:flex-row md:gap-0 items-center flex-col gap-10 '>
 
+        <div className='flex flex-col gap-6 max-w-[35rem] items-center'>
+          <PetImageSlider slides={sliderData} />
+          <div className='px-7 flex flex-col gap-7'>
+            <h3 className=" text-[1.30rem] text-main-text-color font-['Open_Sans_Bold']">Algunos datos sobre mi:</h3>
+            <div className='max-w-[30rem] flex flex-row  justify-around'>
+              <div className='w-1/2 flex flex-col gap-2'>
+                <span className="mb-2 text-[1.15rem] text-gray-700 font-['Open_Sans_Medium']">Color: {color}</span>
+                <span className="mb-2 text-[1.15rem] text-gray-700 font-['Open_Sans_Medium']">Edad: {age}</span>
+                <span className="mb-2 text-[1.15rem] text-gray-700 font-['Open_Sans_Medium']">Raza: {breed}</span>
               </div>
-              <div className="w-full px-4 text-center mt-20">
-                <div className="flex justify-center py-4 lg:pt-24 pt-8">
-                  <div className="mr-4 p-3 text-center">
-                    <span className="text-xl font-['Open_Sans_Bold'] block tracking-wide text-main-text-color">
-                      {color}
-                    </span>
-                    <span className="text-sm text-blueGray-400">Color</span>
-                  </div>
-                  <div className="mr-4 p-3 text-center">
-                    <span className="text-xl font-['Open_Sans_Bold'] block tracking-wide text-main-text-color">
-                      {age}
-                    </span>
-                    <span className="text-sm text-blueGray-400">Edad</span>
-                  </div>
-                  <div className="lg:mr-4 p-3 text-center">
-                    <span className="text-xl font-['Open_Sans_Bold'] block tracking-wide text-main-text-color">
-                      {size}
-                    </span>
-                    <span className="text-sm text-blueGray-400">Tamaño</span>
-                  </div>
-                </div>
+              <div className='w-1/2 flex flex-col gap-2'>
+                <span className="mb-2 text-[1.15rem] text-gray-700 font-['Open_Sans_Medium']">Tamaño: {size}</span>
+                <span className="mb-2 text-[1.15rem] text-gray-700 font-['Open_Sans_Medium']">Sexo: {sex}</span>
+                <span className="mb-2 text-[1.15rem] text-gray-700 font-['Open_Sans_Medium']">Peso: {weight}</span>
               </div>
+
             </div>
-            <div className="text-center mt-2 w-full">
-              <h3 className="text-xl  text-main-text-color mb-8">
-                Hola! Me llamo <span className='font-["Open_Sans_Bold"]'>{name}</span>
-              </h3>
-              <div className="mb-2 text-[1rem] text-main-text-color font-['Open_Sans_Semi'] ">
+            <h3 className="mb-3 text-[1.30rem] text-main-text-color font-['Open_Sans_Semi'] ">
+              Ubicación:<br />
+              <span className="mb-2 text-[1.15rem] text-gray-700 font-['Open_Sans_Medium']" >
                 {location.city}, {location.state}
-              </div>
-              <div className="mb-2 text-[1rem] text-main-text-color font-['Open_Sans_Semi']">
-                Sexo: {sex} - Peso: {weight}
-              </div>
-              <div className="mb-2 text-[1rem] text-main-text-color font-['Open_Sans_Semi']">
-                Raza: {breed}
-              </div>
+              </span>
+            </h3>
+            <div>
+              <span className="mb-3 text-[1.30rem] text-main-text-color font-['Open_Sans_Bold']">Sobre mi:</span> <br />
+              <p className="mb-2 text-[1.15rem] text-gray-700 font-['Open_Sans_Medium']">{description}</p>
             </div>
-            <div className="mt-8 py-10 border-t border-main-text-color text-center">
-              <div className="flex flex-wrap justify-center">
-                <div className="w-full lg:w-9/12 px-4">
-                  <p className="mb-6 text-lg leading-relaxed text-main-text-color">
-                    <span className='font-["Open_Sans_Bold"]'>Sobre mi:</span> <br />{description}
-                  </p>
-                  <button className="text-[1rem] text-main-text-color font-['Open_Sans_Semi']" onClick={() => navigate(`/search?type=${type}&location=${locationData}&breed=${breedData}`)}>Volver a mi búsqueda</button>
-                </div>
+            <h3 className="mt-6 text-[1.30rem] text-main-text-color font-['Open_Sans_Bold']">No te pierdas la oportunidad de conocerme!</h3>
+          </div>
+        </div>
+
+        <div className='flex flex-col w-full lg:max-w-[27rem] md:max-w-[25rem]  rounded-xl bg-secondary-bg-color shadow-md '>
+          <div class="flex items-start py-4 px-3">
+            <div class="flex flex-col p-6 ">
+              <h5 class="pb-8 text-[1.4rem] font-['Open_Sans_Bold'] text-main-text-color">{name} es cuidado por la asociación "Patas Encontradas"</h5>
+              <h3 className="pb-4 text-[1.1rem] font-['Open_Sans_Bold'] text-main-text-color">
+                Me interesa adoptar a {name}. Que debo hacer?
+              </h3>
+              <div className='px-4 pb-20'>
+                <h4 className="pb-4 text-[1rem] font-['Open_Sans_Bold'] text-main-text-color">
+                  1. Llena la solicitud de adopción
+                </h4>
+                <h4 className="pb-4 text-[1rem] font-['Open_Sans_Bold'] text-main-text-color">
+                  2. Conoce a {name}
+                </h4>
+                <h4 className="pb-4 text-[1rem] font-['Open_Sans_Bold'] text-main-text-color">
+                  3. Se evalua tu situación de vivienda
+                </h4>
+              </div>
+              <div className='text-center'>
+                <ButtonPrimary text={'Aplicar ahora'} path={'/solicitud'} />
               </div>
             </div>
           </div>
         </div>
       </div>
-
     </section >
-
-
   );
 };
 
 export default PetDetails;
+
 

@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { Link } from 'react-router-dom'
+import { Link, useLocation } from 'react-router-dom'
 import './navbar.css'
 import Logo from '../../assets/logos/Logo.svg'
 import { FaTimes } from 'react-icons/fa'
@@ -8,15 +8,25 @@ import AccountMenu from './AccountMenu'
 
 export const Navbar2 = ({ setIsLogin }) => {
 
+  let { pathname } = useLocation();
   const [click, setClick] = useState(false);
   const handleClick = () => setClick(!click);
+
+
+
   const content =
     <>
-      <div className='lg:hidden block absolute top-14 w-full left-0 right-0 h-[100vh]
-      py-8 bg-main-bg-color z-50'>
+      <div className='lg:hidden block absolute top-14 w-full z-[999] left-0 right-0 h-[100vh]
+        py-8' style={{
+          backgroundColor: pathname.includes("social/") ? "White" : "#F2D0D2"
+        }}
+      >
         <ul className='text-center text-[1.1rem] p-20'>
-          <Link to='/news-feed'>
-            <li className='transition my-4 py-4 border-b hover:bg-dark-pink hover:rounded'>Publicaciones</li>
+          <Link to='/profile'>
+            <li className='transition my-4 py-4 border-b hover:bg-dark-pink hover:rounded' >Mi Perfil</li>
+          </Link>
+          <Link to='/social/home'>
+            <li className='transition my-4 py-4 border-b hover:bg-dark-pink hover:rounded' >Mi Red</li>
           </Link>
           <Link to='/search'>
             <li className='transition my-4 py-4 border-b hover:bg-dark-pink hover:rounded'>Adoptar</li>
@@ -27,15 +37,16 @@ export const Navbar2 = ({ setIsLogin }) => {
           <Link to='/involucrate'>
             <li className='transition my-4 py-4 border-b hover:bg-dark-pink hover:rounded'>Involúcrate</li>
           </Link>
-          
         </ul>
 
       </div>
     </>
 
   return (
-    <nav className='text-main-text-color text-[0.9rem]'>
-      <div className='h-9vh flex justify-between z-50 bg-secondary-bg-color lg:py-4 px-10 py-4'>
+    <nav className='text-main-text-color text-[1rem]'>
+      <div style={{
+        backgroundColor: pathname.includes("social/") ? "White" : "#F2D0D2"
+      }} className='h-9vh flex justify-between z-50 bg-secondary-bg-color lg:py-4 px-10 py-4'>
         <div className='flex items-center flex-1'>
           <Link to='/'>
             <img className='lg:w-[11rem] md:w-[9rem] sm:w-[8rem] w-[8rem] transition-all' src={Logo} alt="" />
@@ -44,8 +55,8 @@ export const Navbar2 = ({ setIsLogin }) => {
         <div className='lg:flex md:flex lg:flex-auto items-center justify-end hidden '>
           <div className='flex-10 '>
             <ul className='flex gap-10 mr-1 items-center'>
-              <Link to='/news-feed'>
-                <li className='hover:text-black transition cursor-pointer'>Publicaciones</li>
+              <Link to='/social/home'>
+                <li className='hover:text-black transition cursor-pointer' >Mi red</li>
               </Link>
               <Link to='/search'>
                 <li className='hover:text-black transition cursor-pointer' >Adoptar</li>

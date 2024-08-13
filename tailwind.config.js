@@ -26,6 +26,10 @@ export default {
         "hover-pink": "#e5bcbc",
         "buttonColor": '#F28482',
       },
+      animation: {
+        // Bounces 5 times 1s equals 5 seconds
+        'ping-once': 'ping 1s cubic-bezier(0, 0, 0.2, 1) 1'
+      }
     },
   },
 
