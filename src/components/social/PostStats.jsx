@@ -42,12 +42,12 @@ function PostStats() {
         className=' w-full flex pt-6 items-center justify-center '>
         <div className='w-[100%]'>
           <div className='flex  items-center'>
-            <div class=" pr-4 ">
-              <div class="h-[50px] w-[50px] overflow-hidden rounded-[50%] bg-cover bg-center">
-                <img class="h-[100%] w-[100%] rounded-[50%] object-cover object-center" src="https://img.freepik.com/free-photo/young-bearded-man-with-striped-shirt_273609-5677.jpg?w=1480&t=st=1705628003~exp=1705628603~hmac=92fe5c1a8a85c15dcea68a149f488d6ccbd18bb2eee35e6a5c1edd6f855ebc3e" alt="" />
+            <div className=" pr-4 ">
+              <div className="h-[50px] w-[50px] overflow-hidden rounded-[50%] bg-cover bg-center">
+                <img className="h-[100%] w-[100%] rounded-[50%] object-cover object-center" src="https://img.freepik.com/free-photo/young-bearded-man-with-striped-shirt_273609-5677.jpg?w=1480&t=st=1705628003~exp=1705628603~hmac=92fe5c1a8a85c15dcea68a149f488d6ccbd18bb2eee35e6a5c1edd6f855ebc3e" alt="" />
               </div>
             </div>
-            <input type="text" id="small-input" class="h-[2.5rem] block w-full p-2 text-gray-900 border border-gray-300 rounded-full bg-gray-100 text-[0.9rem] focus:ring-0 focus:border-none placeholder:px-3 " placeholder="Escribe un comentario..." />
+            <input type="text" id="small-input" className="h-[2.5rem] block w-full p-2 text-gray-900 border border-gray-300 rounded-full bg-gray-100 text-[0.9rem] focus:ring-0 focus:border-none placeholder:px-3 " placeholder="Escribe un comentario..." />
           </div>
         </div>
       </div>}

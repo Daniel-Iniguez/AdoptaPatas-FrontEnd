@@ -4,5 +4,8 @@
 # Logs de Cambios
 
 ## 2024-Agosto-13 (src)
+- Se corrigen URLS y clases (class to className)
+
+## 2024-Agosto-13 (src)
 - Se cambiaron url de las peticiones Axios para usar esta rama de forma local
 

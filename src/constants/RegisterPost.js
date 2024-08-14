@@ -2,7 +2,7 @@ import axios from "axios";
 
 export const RegisterPost = async (user, postContent, postImage) => {
   // ========== Peticion POST usando api axios ================
-  const url = "localhost:8080/adoptapatas/v1/posts";
+  const url = "http://localhost:8080/adoptapatas/v1/posts";
     try {
       const posts = {
         user: {id:user},

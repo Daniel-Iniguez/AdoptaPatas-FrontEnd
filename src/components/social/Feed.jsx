@@ -12,7 +12,7 @@ function Feed() {
   // ========= Peticion Get usando api Axios =================
   const getPosts = async () => {
     try {
-      const response = await axios.get("localhost:8080/adoptapatas/v1/posts");
+      const response = await axios.get("http://localhost:8080/adoptapatas/v1/posts");
       setPosts(response.data);
       console.log("GET Axios", posts);
     } catch (error) {
