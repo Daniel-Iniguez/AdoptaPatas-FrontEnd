@@ -10,6 +10,7 @@ import { TextFieldStyle } from '../TextFieldStyles';
 import { RegisterUser } from './RegisterUser.js';
 import axios from 'axios';
 import petimage from '../../../assets/img/contact/Carousel/imgContact(3).jpeg'
+import { useEffect } from 'react';
 
 
 
@@ -56,6 +57,23 @@ function SignUpForm() {
   const [error, setError] = useState('');
 
 
+  const [users, setUsers] = useState([])
+
+  // ========= Peticion Get usando api Axios =================
+  const getPosts = async () => {
+    try {
+      const response = await axios.get("https://adoptapatas.onrender.com/adoptapatas/v2/users");
+      setUsers(response.data);
+      console.log("GET Axios", users);
+    } catch (error) {
+      console.log('Error al obtener los usaurios:', error);
+    }
+  };
+  useEffect(() => {
+    getPosts()
+  }, [])
+
+
   //Funciones para obtener el valor del input de cada campo
   const handleNameChange = (e) => {
     const nameValue = e.target.value;
@@ -84,11 +102,11 @@ function SignUpForm() {
   };
   const handleUserNameChange = async (e) => {
 
-    try {
+    //try {
       const userNameValue = e.target.value;
       //console.log(userNameValue);
-      const response = await axios.get("http://localhost:8080/adoptapatas/v2/users");
-      const users = response.data
+      /* const response = await axios.get("https://adoptapatas.onrender.com/adoptapatas/v2/users");
+      const users = response.data */
       console.log(userNameValue);
       //const users = JSON.parse(localStorage.getItem('users')) || [];
       const existUser = users.find(u => (u.username === userNameValue));
@@ -105,16 +123,16 @@ function SignUpForm() {
       }
       setUserName(userNameValue);
       console.log("%cRespuesta Existosa", 'color: green; font-weight: bold;', "handleUserNameChange called");
-    } catch (error) {
+   /*  } catch (error) {
       console.log(error);
-    }
+    } */
   };
   const handleEmailChange = async (e) => {
-    try {
+    //try {
       const userEmail = e.target.value;
       //console.log(userEmail);
-      const response = await axios.get("http://localhost:8080/adoptapatas/v2/users");
-      const users = response.data
+      /* const response = await axios.get("https://adoptapatas.onrender.com/adoptapatas/v2/users");
+      const users = response.data */
       console.log("GET Axios", users.data);
       //const users = JSON.parse(localStorage.getItem('users')) || [];
       const existEmail = users.find(u => (u.email === userEmail));
@@ -131,9 +149,9 @@ function SignUpForm() {
       }
       setEmail(userEmail);
       console.log("%cRespuesta Existosa", 'color: green; font-weight: bold;', "handleEmailChange called");
-    } catch (error) {
+    /* } catch (error) {
       console.log(error);
-    }
+    } */
   };
   const handlePasswordChange = (e) => {
     const userPassword = e.target.value;
