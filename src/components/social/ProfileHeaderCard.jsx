@@ -13,7 +13,7 @@ function ProfileHeaderCard() {
   // ========= Peticion Get usando api Axios =================
   const getUserPosts = async () => {
     try {
-      const response = await axios.get(`https://adoptapatas.onrender.com/adoptapatas/v1/posts/user-post/${userPosts.usuario.id}`);
+      const response = await axios.get(`http://localhost:8080/adoptapatas/v1/posts/user-post/${userPosts.usuario.id}`);
       setUserPosts(response.data);
       console.log("GET Axios", posts);
     } catch (error) {
