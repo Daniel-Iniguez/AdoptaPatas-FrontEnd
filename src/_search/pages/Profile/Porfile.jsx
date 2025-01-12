@@ -38,7 +38,7 @@ export const Profile = ({ setIsLogin }) => {
     };
 
     const handleDeleteAccount = async () => {
-        const url = `https://adoptapatas.onrender.com/adoptapatas/v2/users/${usuario.id}`;
+        const url = `http://localhost:8080/adoptapatas/v2/users/${usuario.id}`;
         try {
 
             const response = await axios.delete(url);

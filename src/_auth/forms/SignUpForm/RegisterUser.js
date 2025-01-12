@@ -14,7 +14,7 @@ import axios from "axios";
  */
 export const RegisterUser = async (name, lastName, userName, email, password, age, phoneNumber, place, state, role) => {
   // ========== Peticion POST usando api axios ================
-  const url = "https://adoptapatas.onrender.com/adoptapatas/v2/users";
+  const url = "http://localhost:8080/adoptapatas/v2/users";
     try {
       const user = {
         firstName: name,

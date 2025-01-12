@@ -62,7 +62,7 @@ function SignUpForm() {
   // ========= Peticion Get usando api Axios =================
   const getPosts = async () => {
     try {
-      const response = await axios.get("https://adoptapatas.onrender.com/adoptapatas/v2/users");
+      const response = await axios.get("http://localhost:8080/adoptapatas/v2/users");
       setUsers(response.data);
       console.log("GET Axios", users);
     } catch (error) {
@@ -105,7 +105,7 @@ function SignUpForm() {
     //try {
       const userNameValue = e.target.value;
       //console.log(userNameValue);
-      /* const response = await axios.get("https://adoptapatas.onrender.com/adoptapatas/v2/users");
+      /* const response = await axios.get("http://localhost:8080/adoptapatas/v2/users");
       const users = response.data */
       console.log(userNameValue);
       //const users = JSON.parse(localStorage.getItem('users')) || [];
@@ -131,7 +131,7 @@ function SignUpForm() {
     //try {
       const userEmail = e.target.value;
       //console.log(userEmail);
-      /* const response = await axios.get("https://adoptapatas.onrender.com/adoptapatas/v2/users");
+      /* const response = await axios.get("http://localhost:8080/adoptapatas/v2/users");
       const users = response.data */
       console.log("GET Axios", users.data);
       //const users = JSON.parse(localStorage.getItem('users')) || [];

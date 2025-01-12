@@ -35,7 +35,7 @@ function SignInForm({ setIsLogin }) {
   // ========= Peticion Get usando api Axios =================
   const getPosts = async () => {
     try {
-      const response = await axios.get("https://adoptapatas.onrender.com/adoptapatas/v2/users");
+      const response = await axios.get("http://localhost:8080/adoptapatas/v2/users");
       setUsers(response.data);
       console.log("GET Axios", users);
     } catch (error) {
@@ -79,7 +79,7 @@ function SignInForm({ setIsLogin }) {
       e.preventDefault();
       // Validar los datos aquí (comparar con datos en local storage)
       //const usersData = JSON.parse(localStorage.getItem('users')) || [];
-      const response = await axios.get("https://adoptapatas.onrender.com/adoptapatas/v1/users");
+      const response = await axios.get("http://localhost:8080/adoptapatas/v1/users");
       const users = response.data;
       const user = users.find(u => (u.username === userName || u.email === email) && u.password === password);
       if (user) {
